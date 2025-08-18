@@ -1,58 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RoXxerGames Studios</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="RoXxerGames Studios: estudio indie que crea experiencias únicas y divertidas para móviles y PC." />
+  <meta name="theme-color" content="#0d1117" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RoXxerGames Studios" />
+  <meta property="og:description" content="Estudio indie de videojuegos. Humor, aventura y diversión." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roxxergamesstudios.github.io/" />
+  <!-- Si luego tienes logo, cámbialo aquí -->
+  <!-- <meta property="og:image" content="https://roxxergamesstudios.github.io/images/og-image.jpg" /> -->
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    :root{
+      --bg:#0d1117; --panel:#0f172a; --card:#111827; --muted:#9ca3af;
+      --text:#e5e7eb; --brand:#60a5fa; --accent:#22d3ee; --ok:#34d399; --warn:#fbbf24;
+      --max:1100px;
     }
-    header {
-      padding: 40px;
-      background: #161b22;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    /* Header / Nav */
+    header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(6px);background:rgba(13,17,23,.7);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;font-weight:800;color:#0b1020}
+    .brand h1{font-size:18px;margin:0;letter-spacing:.3px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+    .burger{display:none;cursor:pointer}
+    @media (max-width: 760px){
+      .links{display:none}
+      .burger{display:block}
+      .mobile{display:none;flex-direction:column;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.07)}
+      .mobile a{padding:8px 0}
     }
-    h1 {
-      color: #58a6ff;
+    /* Hero */
+    .hero{padding:72px 0;background:
+      radial-gradient(800px 400px at 20% -10%, rgba(96,165,250,.12), transparent 60%),
+      radial-gradient(800px 400px at 80% -20%, rgba(34,211,238,.12), transparent 60%);
+      border-bottom:1px solid rgba(255,255,255,.06)
     }
-    section {
-      padding: 30px;
-      max-width: 800px;
-      margin: auto;
-    }
-    footer {
-      background: #161b22;
-      padding: 20px;
-      font-size: 14px;
-      color: #888;
-    }
+    .hero h2{font-size:44px;line-height:1.1;margin:0 0 14px;color:var(--brand)}
+    .hero p{font-size:18px;color:var(--muted);max-width:750px}
+    .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.12);padding:12px 18px;border-radius:14px;font-weight:700}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b1020;border:none}
+    .badges{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .badge{font-size:12px;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;color:var(--muted)}
+    /* Section titles */
+    section{padding:46px 0}
+    section h3{font-size:26px;margin:0 0 20px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width: 900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 640px){.grid{grid-template-columns:1fr}}
+    /* Cards */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:#0b1220;display:grid;place-items:center;color:var(--muted);font-size:13px}
+    .content{padding:16px}
+    .pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;border:1px solid rgba(255,255,255,.1);padding:4px 10px;border-radius:999px;margin-bottom:10px;color:var(--muted)}
+    .title{font-weight:800;margin:2px 0 6px}
+    .desc{color:var(--muted);font-size:14px;line-height:1.6}
+    .meta{margin-top:12px;font-size:12px;color:var(--muted)}
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:26px}
+    @media (max-width: 900px){.contact{grid-template-columns:1fr}}
+    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:16px}
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:22px 0;color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
   <header>
-    <h1>RoXxerGames Studios</h1>
-    <p>Experiencias únicas y divertidas, hechas con pasión indie 🎮</p>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">RX</div>
+          <h1>RoXxerGames Studios</h1>
+        </div>
+        <div class="links">
+          <a href="#juegos">Juegos</a>
+          <a href="#sobre">Sobre nosotros</a>
+          <a href="#contacto">Contacto</a>
+          <a href="privacy.html">Privacidad</a>
+        </div>
+        <div class="burger" id="burger">☰</div>
+      </nav>
+      <div class="mobile" id="mobile">
+        <a href="#juegos">Juegos</a>
+        <a href="#sobre">Sobre nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="privacy.html">Privacidad</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Nuestros Juegos</h2>
-    <p>🌌 <b>Catlantis</b> – Un viaje mágico, sarcástico y lleno de acción. - (En Desarrollo)</p>
-    <p>🧩 <b>Puzzle Galaxy</b> – Rompecabezas desafiantes para tu mente.</p>
+  <section class="hero">
+    <div class="container">
+      <h2>Videojuegos con personalidad, humor y corazón</h2>
+      <p>Somos un estudio indie que crea experiencias únicas para móviles y PC. Nos mueve el diseño limpio, la jugabilidad adictiva y un toque de humor con estilo.</p>
+      <div class="cta">
+        <!-- Si ya tienes páginas de tienda, enlázalas aquí -->
+        <!-- <a class="btn primary" href="https://play.google.com/store/apps/dev?id=XXXX">Ver en Google Play</a> -->
+        <a class="btn" href="#juegos">Explorar juegos</a>
+        <a class="btn" href="#contacto">Escríbenos</a>
+      </div>
+      <div class="badges">
+        <span class="badge">Unity 2D</span>
+        <span class="badge">Android • iOS • PC</span>
+        <span class="badge">AdMob • Play Services</span>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Contacto</h2>
-    <p>Escríbenos a: <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a></p>
+  <section id="juegos">
+    <div class="container">
+      <h3>🎮 Nuestros juegos</h3>
+
+      <div class="grid">
+        <!-- Catlantis (En desarrollo) -->
+        <article class="card">
+          <div class="thumb">[Imagen de Catlantis]</div>
+          <div class="content">
+            <div class="pill">🛠️ En desarrollo</div>
+            <div class="title">Catlantis</div>
+            <p class="desc">Plataformas mágico–sarcasticón con acción, humor y aventuras. Un gato carismático, mundos encantados y combates ágiles.</p>
+            <div class="meta">Género: Acción/Plataformas • Single player</div>
+          </div>
+        </article>
+
+        <!-- Puzzle Galaxy (publicado/próximo) -->
+        <article class="card">
+          <div class="thumb">[Imagen de Puzzle Galaxy]</div>
+          <div class="content">
+            <div class="pill">👀 Próximamente</div>
+            <div class="title">Puzzle Galaxy</div>
+            <p class="desc">Rompecabezas desafiantes con distintos modos de juego. Ideal para entrenar la mente y relajarte.</p>
+            <div class="meta">Género: Puzzle • Modo por tiempo y por movimientos</div>
+          </div>
+        </article>
+
+        <!-- Tercera tarjeta opcional -->
+        <article class="card">
+          <div class="thumb">[Próximo anuncio]</div>
+          <div class="content">
+            <div class="pill">👀 Próximamente</div>
+            <div class="title">Proyecto secreto</div>
+            <p class="desc">Estamos prototipando algo adictivo. Más info pronto…</p>
+            <div class="meta">Wishlist pronto</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h3>Sobre RoXxerGames Studios</h3>
+      <div class="panel">
+        <p>Desarrollamos videojuegos con identidad y atención al detalle. Creemos en mecánicas claras, arte con carácter y un diseño accesible para todo tipo de jugadores.</p>
+        <p>Trabajamos con buenas prácticas (SRP, modularidad) y un enfoque profesional de estudio indie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container contact">
+      <div class="panel">
+        <h3>Contacto</h3>
+        <p>¿Colaboraciones, prensa o soporte?</p>
+        <p>📧 <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a></p>
+        <!-- Si quieres un form externo: -->
+        <!-- <p>Formulario: <a href="https://forms.gle/XXXX" target="_blank">Enviar mensaje</a></p> -->
+      </div>
+      <div class="panel">
+        <h3>Recursos legales</h3>
+        <ul>
+          <li><a href="privacy.html">Política de privacidad</a></li>
+          <li><a href="/app-ads.txt">app-ads.txt</a> (AdMob)</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <footer>
-    © 2025 RoXxerGames Studios - Todos los derechos reservados
+    <div class="container">© 2025 RoXxerGames Studios — Todos los derechos reservados</div>
   </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobile');
+    burger?.addEventListener('click', ()=> {
+      mobile.style.display = mobile.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
 </body>
 </html>
-
