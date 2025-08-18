@@ -7,10 +7,11 @@ Estudio indie que crea experiencias únicas, divertidas y con personalidad.
 - **Puzzle Galaxy** — Rompecabezas desafiantes con modos por tiempo y por movimientos. Proximo!
 
 ## 🔗 Sitio
-- Web: https://roxxergamesstudios.github.io/
-- Privacidad: https://roxxergamesstudios.github.io/privacy.html
-- app-ads.txt: https://roxxergamesstudios.github.io/app-ads.txt
+- Web: https://roxxer98.github.io/
+- Privacidad: https://roxxer98.github.io/privacy.html
+- app-ads.txt: https://roxxer98.github.io/app-ads.txt
 
 ## 📩 Contacto
 - Soporte: **roxxergamesstudios@gmail.com**
+
 
