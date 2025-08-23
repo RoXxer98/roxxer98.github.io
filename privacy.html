@@ -1,36 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Política de Privacidad - RoXxerGames Studios</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.7; background: #0d1117; color: #e5e7eb; }
-    h1 { color: #60a5fa; }
-    a { color: #60a5fa; }
-    .muted{color:#9ca3af}
+    :root{--bg:#0d1117;--fg:#e5e7eb;--muted:#9ca3af;--link:#60a5fa;--card:#111827;--br:14px}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    main{max-width:980px;margin:40px auto;padding:0 20px}
+    header{margin-bottom:24px}
+    h1{color:var(--link);margin:0 0 8px}
+    nav a{color:var(--link);margin-right:12px;text-decoration:none}
+    section{background:var(--card);padding:22px;border-radius:var(--br);margin:16px 0;border:1px solid #1f2937}
+    h2{margin-top:0}
+    a{color:var(--link)}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    code{background:#0b1220;padding:2px 6px;border-radius:6px}
   </style>
 </head>
 <body>
-  <h1>Política de Privacidad</h1>
-  <p>En <strong>RoXxerGames Studios</strong> respetamos y protegemos tu privacidad. Nuestros juegos pueden utilizar servicios de terceros como <b>Google AdMob</b> (publicidad) y <b>Google Play Services</b> (logros/analítica).</p>
+<main>
+  <header>
+    <h1>Política de Privacidad</h1>
+    <div class="muted">Vigente desde: 23/08/2025</div>
+    <nav aria-label="Índice">
+      <a href="#responsable">Responsable</a>
+      <a href="#datos">Datos que se tratan</a>
+      <a href="#fines">Finalidades</a>
+      <a href="#terceros">Terceros / SDK</a>
+      <a href="#retencion">Conservación y seguridad</a>
+      <a href="#opciones">Tus opciones y control</a>
+      <a href="#ninos">Menores</a>
+      <a href="#derechos">Derechos de privacidad</a>
+      <a href="#cambios">Cambios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-  <h2>Datos que podrían recopilar terceros</h2>
-  <p>Identificadores de dispositivo, información de uso y métricas necesarias para mostrar anuncios y mejorar el producto. Estos datos se gestionan según las políticas de cada proveedor.</p>
+  <section id="responsable">
+    <h2>1) Responsable</h2>
+    <p><strong>RoXxerGames Studios</strong> (“nosotros”, “nuestro”). Correo: 
+      <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a>.
+    </p>
+    <p>Nuestras apps móviles (<em>SlideQuest</em> y otras) muestran anuncios y usan servicios de plataforma para logros/servicios de Google Play. No operamos servidores propios para perfilar usuarios.</p>
+  </section>
 
-  <h2>Datos que NO recopilamos</h2>
-  <p>No solicitamos datos personales sensibles (como nombre, dirección o teléfono). Si el usuario nos escribe por correo, solo usaremos esa información para responder.</p>
+  <section id="datos">
+    <h2>2) Qué datos se tratan</h2>
+    <p>La app en sí no te pide nombre, email, ni dirección. Sin embargo, los <strong>SDK de terceros</strong> que integramos pueden tratar automáticamente estos datos técnicos:</p>
+    <ul>
+      <li><strong>Identificadores del dispositivo</strong> (p. ej., <em>Advertising ID</em> / AAID) y señales antifraude.</li>
+      <li><strong>Información de uso</strong> (interacciones básicas con la app, vistas de anuncios, rendimiento).</li>
+      <li><strong>Información de la app y del dispositivo</strong> (versión de Android, idioma, modelo, IP aproximada para geolocalización imprecisa).</li>
+      <li><strong>Compras dentro de la app</strong>: Google procesa el pago; nosotros solo vemos estados no sensibles (p. ej., “No Ads” activo) para habilitar funciones.</li>
+    </ul>
+    <p class="muted">Nota: si nos contactas por email, trataremos los datos que nos envíes solo para responder.</p>
+  </section>
 
-  <h2>Publicidad</h2>
-  <p>Usamos Google AdMob. Más información en la 
-    <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener">Política de Privacidad de Google</a>.
-  </p>
+  <section id="fines">
+    <h2>3) Para qué se usan</h2>
+    <ul>
+      <li><strong>Publicidad</strong>: mostrar anuncios, medir su rendimiento y evitar fraude.</li>
+      <li><strong>Servicios de plataforma</strong>: logros, clasificación y servicios de Google Play.</li>
+      <li><strong>Mejora del producto</strong>: métricas de estabilidad/rendimiento (de forma agregada).</li>
+      <li><strong>Compras</strong>: activar “No Ads” u otros contenidos adquiridos.</li>
+    </ul>
+    <p>Base legal (UE): tu <strong>consentimiento</strong> para anuncios personalizados mediante el <em>User Messaging Platform (UMP)</em> de Google y, cuando corresponda, <strong>interés legítimo</strong> para funciones básicas (p. ej., anuncios no personalizados/medición esencial).</p>
+  </section>
 
-  <h2>Contacto</h2>
-  <p>Para preguntas o solicitudes escribe a:
-    <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a>
-  </p>
+  <section id="terceros">
+    <h2>4) Terceros / SDK que pueden tratar datos</h2>
+    <ul>
+      <li><strong>Google AdMob</strong> (publicidad): <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener">Política de Google</a> · 
+        <a href="https://support.google.com/admob/answer/6128543?hl=es" target="_blank" rel="noopener">Datos que usa AdMob</a></li>
+      <li><strong>Google Play Services</strong> (logros/servicios): <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener">Política de Google</a></li>
+    </ul>
+    <p>Estos proveedores pueden operar globalmente; sus tratamientos se rigen por sus propias políticas y términos.</p>
+  </section>
 
-  <p class="muted">Última actualización: 2025-08-18</p>
+  <section id="retencion">
+    <h2>5) Conservación y seguridad</h2>
+    <ul>
+      <li><strong>Nosotros</strong> no almacenamos datos personales en servidores propios.</li>
+      <li><strong>Terceros</strong> conservan la información por los plazos necesarios para sus fines (ver políticas enlazadas).</li>
+      <li>Aplicamos prácticas razonables para proteger la app; ningún sistema es 100% seguro.</li>
+    </ul>
+  </section>
+
+  <section id="opciones">
+    <h2>6) Tus opciones y control</h2>
+    <ul>
+      <li><strong>Consentimiento (UE)</strong>: mostramos el diálogo de consentimiento de Google UMP al abrir la app y cuando sea necesario. Puedes actualizar tus preferencias desde Ajustes del dispositivo/desde la app cuando esté disponible.</li>
+      <li><strong>Anuncios personalizados</strong>: puedes desactivarlos en tu dispositivo (Android → <em>Privacidad</em> → <em>Anuncios</em> → “Eliminar ID de publicidad” o “Desactivar personalización”).</li>
+      <li><strong>Reestablecer el ID de publicidad</strong>: en la misma pantalla puedes generar uno nuevo.</li>
+      <li><strong>“No vender ni compartir” (California, CPRA)</strong>: no vendemos información personal. La publicidad basada en intereses puede considerarse “compartir” según CPRA; puedes desactivarla usando los controles anteriores.</li>
+      <li><strong>Compras (“No Ads”)</strong>: si compras la versión sin anuncios, la app dejará de solicitar anuncios a AdMob en ese dispositivo/cuenta.</li>
+      <li><strong>Desinstalar</strong>: puedes desinstalar la app para detener todo tratamiento relacionado con su uso.</li>
+    </ul>
+  </section>
+
+  <section id="ninos">
+    <h2>7) Menores de edad</h2>
+    <p>La app <strong>no está dirigida a menores de 13 años</strong>. Si crees que un menor nos ha facilitado datos, contáctanos para eliminarlos. Si en el futuro nos dirigimos específicamente a niños, cumpliremos con las políticas de <em>Google Play Families</em> y anuncios apropiados para familias.</p>
+  </section>
+
+  <section id="derechos">
+    <h2>8) Derechos de privacidad</h2>
+    <p>Según tu región (p. ej., UE/EEE, Reino Unido, Brasil, México, California), puedes tener derechos de acceso, rectificación, eliminación, oposición, limitación, portabilidad y reclamación ante tu autoridad local. Escríbenos a 
+      <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a> indicando el país/estado para ayudarte. Ten en cuenta que muchos datos están en manos de Google/AdMob y deberás ejercer derechos directamente con ellos.</p>
+  </section>
+
+  <section id="transferencias">
+    <h2>9) Transferencias internacionales</h2>
+    <p>Los proveedores indicados pueden tratar datos fuera de tu país. Google declara usar mecanismos como <em>Standard Contractual Clauses</em> cuando aplica (ver sus políticas).</p>
+  </section>
+
+  <section id="cambios">
+    <h2>10) Cambios en esta política</h2>
+    <p>Podemos actualizar esta política para reflejar cambios legales o técnicos. Publicaremos la nueva fecha de vigencia arriba y, cuando sea apropiado, mostraremos un aviso en la app.</p>
+  </section>
+
+  <section id="contacto">
+    <h2>11) Contacto</h2>
+    <p>Correo: <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a></p>
+    <p class="muted">RoXxerGames Studios</p>
+  </section>
+
+  <section id="datasafety">
+    <h2>Anexo: Declaración orientativa para “Seguridad de datos” (Play Console)</h2>
+    <p><strong>Categorías típicas a declarar por integrar AdMob/Play Services</strong> (confírmalo según tu implementación):</p>
+    <ul>
+      <li><strong>Datos recopilados por terceros</strong>: ID de publicidad, información de la app y del dispositivo, diagnósticos/rendimiento, interacción con anuncios. Finalidades: publicidad, analítica, prevención de fraude.</li>
+      <li><strong>Datos compartidos</strong>: con proveedores publicitarios (Google/AdMob) para la entrega de anuncios.</li>
+      <li><strong>Encriptación</strong>: Sí (por los SDK).</li>
+      <li><strong>Eliminación de datos</strong>: el usuario puede desinstalar la app; para datos de AdMob/Google debe usar sus canales.</li>
+    </ul>
+    <p class="muted">Este anexo es informativo para ayudarte a completar Play Console; no sustituye tus respuestas reales.</p>
+  </section>
+
+  <p class="muted">© RoXxerGames Studios</p>
+</main>
 </body>
 </html>
