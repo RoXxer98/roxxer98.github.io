@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Política de Privacidad — Zenith · RoXxer Studio</title>
+  <meta name="description" content="Política de privacidad de Zenith — Reproductor de música offline para Android." />
+  <meta name="theme-color" content="#131318" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:    #131318;
+      --sur:   #1b1b21;
+      --text:  #CDBAA1;
+      --dim:   rgba(205,186,161,.5);
+      --dim2:  rgba(205,186,161,.22);
+      --acc:   #DA3A27;
+      --a-dim: rgba(218,58,39,.12);
+      --bdr:   rgba(205,186,161,.08);
+      --bdr2:  rgba(205,186,161,.15);
+      --ok:    #4ade80;
+      --max:   860px;
+      --r:     14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--acc); text-decoration: none; transition: opacity .15s; }
+    a:hover { opacity: .8; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(180%); background: rgba(19,19,24,.9); border-bottom: 1px solid var(--bdr); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); }
+    .brand-logo { width: 30px; height: 30px; background: var(--acc); border-radius: 7px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; flex-shrink: 0; }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: -.3px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--dim); padding: 6px 11px; border-radius: 7px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--bdr); opacity: 1; }
+    .nav-links a.cur { color: var(--text); }
+    .burger { display: none; cursor: pointer; font-size: 20px; color: var(--dim); padding: 4px; }
+    .mob { display: none; flex-direction: column; gap: 2px; padding: 10px 0 14px; border-top: 1px solid var(--bdr); }
+    .mob a { font-size: 15px; font-weight: 500; color: var(--dim); padding: 9px 4px; transition: color .15s; }
+    .mob a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } .burger { display: block; } }
+
+    /* ── PAGE LAYOUT ── */
+    .page { max-width: var(--max); margin: 0 auto; padding: 56px 24px 80px; }
+
+    /* ── HEADER ── */
+    .page-header { margin-bottom: 48px; }
+    .breadcrumb { font-size: 12px; color: var(--dim2); display: flex; align-items: center; gap: 6px; margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); }
+    .breadcrumb a:hover { color: var(--text); opacity: 1; }
+    .app-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .app-icon { width: 52px; height: 52px; border-radius: 13px; overflow: hidden; border: 1px solid var(--bdr); flex-shrink: 0; }
+    .app-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .app-info {}
+    .app-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 3px; }
+    .app-title { font-size: 28px; font-weight: 900; letter-spacing: -.6px; }
+    .page-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .meta-chip { font-size: 11px; font-weight: 500; color: var(--dim); background: var(--sur); border: 1px solid var(--bdr); padding: 4px 11px; border-radius: 7px; }
+    .meta-chip.green { color: var(--ok); background: rgba(74,222,128,.07); border-color: rgba(74,222,128,.15); }
+
+    /* ── TOC ── */
+    .toc { background: var(--sur); border: 1px solid var(--bdr); border-radius: var(--r); padding: 20px 22px; margin-bottom: 40px; }
+    .toc-title { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim2); margin-bottom: 12px; }
+    .toc ol { list-style: none; display: flex; flex-direction: column; gap: 6px; counter-reset: toc; }
+    .toc li { counter-increment: toc; }
+    .toc li a {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500; color: var(--dim);
+      padding: 5px 8px; border-radius: 7px;
+      transition: color .15s, background .15s; opacity: 1;
+    }
+    .toc li a:hover { color: var(--text); background: var(--bdr); }
+    .toc li a::before { content: counter(toc); font-size: 10px; font-weight: 700; color: var(--acc); width: 18px; text-align: center; flex-shrink: 0; }
+
+    /* ── SECTIONS ── */
+    .policy-section { margin-bottom: 12px; }
+    .psec { background: var(--sur); border: 1px solid var(--bdr); border-radius: var(--r); padding: 26px 28px; }
+    .psec-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .psec-num { font-size: 11px; font-weight: 700; color: var(--acc); background: var(--a-dim); border: 1px solid rgba(218,58,39,.2); padding: 2px 8px; border-radius: 5px; flex-shrink: 0; }
+    .psec-title { font-size: 16px; font-weight: 700; color: var(--text); }
+    .psec p { font-size: 14px; color: var(--dim); line-height: 1.75; }
+    .psec p + p { margin-top: 10px; }
+    .psec ul, .psec ol { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+    .psec li { font-size: 14px; color: var(--dim); display: flex; align-items: flex-start; gap: 9px; line-height: 1.6; }
+    .psec li::before { content: '·'; color: var(--acc); flex-shrink: 0; font-size: 16px; line-height: 1.4; }
+
+    /* NO data highlight */
+    .no-list { margin-top: 14px; }
+    .no-list li { color: var(--dim); }
+    .no-list li::before { content: '✕'; color: rgba(218,58,39,.6); font-size: 12px; margin-top: 2px; }
+
+    /* ── CONTACT BOX ── */
+    .contact-box { background: linear-gradient(135deg, rgba(218,58,39,.07), rgba(45,48,33,.2)); border: 1px solid rgba(218,58,39,.18); border-radius: var(--r); padding: 24px 28px; margin-top: 12px; }
+    .contact-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .contact-box p { font-size: 14px; color: var(--dim); line-height: 1.7; }
+    .contact-box .email { font-size: 15px; font-weight: 600; color: var(--acc); margin-top: 10px; display: block; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--bdr); padding: 32px 0; }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .foot-brand { display: flex; align-items: center; gap: 8px; }
+    .foot-logo { width: 24px; height: 24px; background: var(--acc); border-radius: 5px; display: grid; place-items: center; font-size: 9px; font-weight: 900; color: #fff; }
+    .foot-name { font-size: 12px; font-weight: 600; color: var(--dim); }
+    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .foot-links a { font-size: 12px; color: var(--dim); transition: color .15s; }
+    .foot-links a:hover { color: var(--text); opacity: 1; }
+    .foot-copy { font-size: 11px; color: var(--dim2); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="brand">
+        <div class="brand-logo">RX</div>
+        <span class="brand-name">RoXxer Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="zenith.html">Zenith</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="privacy.html" class="cur">Privacidad</a>
+      </div>
+      <div class="burger" id="burger">☰</div>
+    </nav>
+    <div class="mob" id="mob">
+      <a href="index.html">Home</a>
+      <a href="zenith.html">Zenith</a>
+      <a href="slide-rush.html">Slide Rush</a>
+      <a href="privacy.html">Privacidad</a>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="zenith.html">Zenith</a>
+      <span>/</span>
+      <span style="color:var(--dim);">Política de Privacidad</span>
+    </div>
+
+    <div class="app-row">
+      <div class="app-icon">
+        <img src="assets/zenith/ICON ZENITH (1).jpg" alt="Zenith">
+      </div>
+      <div class="app-info">
+        <div class="app-label">Política de Privacidad</div>
+        <div class="app-title">Zenith</div>
+      </div>
+    </div>
+
+    <div class="page-meta">
+      <span class="meta-chip">Vigente desde: 16/04/2026</span>
+      <span class="meta-chip green">● Sin recopilación de datos personales</span>
+      <span class="meta-chip">100% Offline</span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contenido</div>
+    <ol>
+      <li><a href="#responsable">Responsable</a></li>
+      <li><a href="#datos">Qué datos maneja la app</a></li>
+      <li><a href="#no-datos">Datos que NO recopilamos</a></li>
+      <li><a href="#terceros">Terceros</a></li>
+      <li><a href="#almacenamiento">Almacenamiento local</a></li>
+      <li><a href="#menores">Menores de edad</a></li>
+      <li><a href="#cambios">Cambios a esta política</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTIONS -->
+
+  <div class="policy-section" id="responsable">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">01</span>
+        <span class="psec-title">Responsable</span>
+      </div>
+      <p><strong style="color:var(--text);">RoXxer Studios</strong> ("nosotros") es el responsable del tratamiento de los datos asociados a la aplicación Zenith.</p>
+      <p>Correo de contacto: <a href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="policy-section" id="datos">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">02</span>
+        <span class="psec-title">Qué datos maneja la app</span>
+      </div>
+      <p>Zenith es un reproductor de música local. <strong style="color:var(--text);">No recopilamos, almacenamos ni transmitimos datos personales a ningún servidor externo.</strong></p>
+      <p>La app accede a lo siguiente únicamente en tu dispositivo:</p>
+      <ul>
+        <li><strong style="color:var(--text);">Archivos de audio locales</strong> — para leer y reproducir la música almacenada en tu dispositivo. Requiere permiso <code style="font-size:12px; background:var(--bdr); padding:1px 6px; border-radius:4px; color:var(--dim);">READ_MEDIA_AUDIO</code>.</li>
+        <li><strong style="color:var(--text);">Datos de audio en tiempo real</strong> — para el visualizador de música. La app accede a la salida de audio del reproductor. Este acceso no captura ni graba el micrófono.</li>
+        <li><strong style="color:var(--text);">Preferencias y configuración</strong> — tema, ecualizador, playlists, favoritos, historial de reproducción. Se guardan localmente y nunca salen del dispositivo.</li>
+        <li><strong style="color:var(--text);">Notificaciones</strong> — para mostrar los controles de reproducción en la barra de notificaciones. Requiere permiso <code style="font-size:12px; background:var(--bdr); padding:1px 6px; border-radius:4px; color:var(--dim);">POST_NOTIFICATIONS</code>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="policy-section" id="no-datos">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">03</span>
+        <span class="psec-title">Datos que NO recopilamos</span>
+      </div>
+      <p>Zenith no recopila, transmite ni comparte ninguno de los siguientes datos:</p>
+      <ul class="no-list">
+        <li>Nombre, correo electrónico ni ningún dato de identificación personal</li>
+        <li>Ubicación geográfica</li>
+        <li>Contactos del dispositivo</li>
+        <li>ID de publicidad ni datos de seguimiento</li>
+        <li>Ningún dato se envía a servidores propios ni de terceros</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="policy-section" id="terceros">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">04</span>
+        <span class="psec-title">Terceros</span>
+      </div>
+      <p>Zenith utiliza únicamente <strong style="color:var(--text);">Google Play Services</strong>, requerido por el sistema Android para la distribución básica de la app. No integramos SDKs de publicidad, analíticas externas ni redes sociales.</p>
+      <ul>
+        <li>Política de privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="policy-section" id="almacenamiento">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">05</span>
+        <span class="psec-title">Almacenamiento local</span>
+      </div>
+      <p>Todos los datos generados por la app — playlists, favoritos, estadísticas de escucha, configuración — se almacenan <strong style="color:var(--text);">exclusivamente en la memoria local de tu dispositivo</strong> mediante bases de datos y preferencias locales.</p>
+      <p>Al desinstalar la app, estos datos se eliminan por completo del dispositivo.</p>
+    </div>
+  </div>
+
+  <div class="policy-section" id="menores">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">06</span>
+        <span class="psec-title">Menores de edad</span>
+      </div>
+      <p>Zenith no está dirigida a menores de 13 años y no recopila datos de ningún usuario. Si tienes dudas o crees que un menor ha utilizado la app de forma inapropiada, contáctanos para atender tu consulta.</p>
+    </div>
+  </div>
+
+  <div class="policy-section" id="cambios">
+    <div class="psec">
+      <div class="psec-head">
+        <span class="psec-num">07</span>
+        <span class="psec-title">Cambios a esta política</span>
+      </div>
+      <p>Si en el futuro se realizan cambios relevantes en esta política de privacidad, actualizaremos esta página con una nueva fecha de vigencia. Te recomendamos revisarla periódicamente.</p>
+    </div>
+  </div>
+
+  <div class="policy-section" id="contacto">
+    <div class="contact-box">
+      <h3>¿Tienes alguna pregunta?</h3>
+      <p>Si tienes dudas sobre esta política de privacidad o sobre cómo Zenith maneja tus datos, no dudes en contactarnos. Responderemos lo antes posible.</p>
+      <a class="email" href="mailto:roxxergamesstudios@gmail.com">roxxergamesstudios@gmail.com</a>
+      <p style="margin-top:16px; font-size:12px; color:var(--dim2);">© RoXxer Studios. Todos los derechos reservados.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <div class="foot-logo">RX</div>
+        <span class="foot-name">RoXxer Studio</span>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="zenith.html">Zenith</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
+      </div>
+      <span class="foot-copy">© 2025 RoXxer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger')?.addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+</body>
+</html>

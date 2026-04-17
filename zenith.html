@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zenith — RoXxer Studio</title>
+  <meta name="description" content="Zenith — Reproductor de música 100% offline para Android. Sin streaming, sin suscripciones." />
+  <meta name="theme-color" content="#131318" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:    #131318;
+      --sur:   #1b1b21;
+      --sur2:  #222228;
+      --text:  #CDBAA1;
+      --dim:   rgba(205,186,161,.5);
+      --dim2:  rgba(205,186,161,.22);
+      --acc:   #DA3A27;
+      --a-dim: rgba(218,58,39,.12);
+      --bdr:   rgba(205,186,161,.08);
+      --bdr2:  rgba(205,186,161,.15);
+      --ok:    #4ade80;
+      --max:   1100px;
+      --r:     14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(180%); background: rgba(19,19,24,.9); border-bottom: 1px solid var(--bdr); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-logo { width: 30px; height: 30px; background: var(--acc); border-radius: 7px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; flex-shrink: 0; }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: -.3px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--dim); padding: 6px 11px; border-radius: 7px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--bdr); }
+    .nav-links a.cur { color: var(--text); }
+    .burger { display: none; cursor: pointer; font-size: 20px; color: var(--dim); padding: 4px; }
+    .mob { display: none; flex-direction: column; gap: 2px; padding: 10px 0 14px; border-top: 1px solid var(--bdr); }
+    .mob a { font-size: 15px; font-weight: 500; color: var(--dim); padding: 9px 4px; transition: color .15s; }
+    .mob a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } .burger { display: block; } }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { font-size: 12px; color: var(--dim2); display: flex; align-items: center; gap: 6px; padding: 14px 0; }
+    .breadcrumb a { color: var(--dim); transition: color .15s; }
+    .breadcrumb a:hover { color: var(--text); }
+    .breadcrumb span { color: var(--dim2); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 520px;
+      display: flex; align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: #0d0d11;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .35;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(19,19,24,.2) 0%, rgba(19,19,24,.65) 50%, var(--bg) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      width: 100%; padding: 56px 0 60px;
+    }
+    .hero-top { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+    .app-icon-lg {
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      border: 2px solid rgba(205,186,161,.12);
+      overflow: hidden; flex-shrink: 0;
+    }
+    .app-icon-lg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-status { display: flex; flex-direction: column; gap: 6px; }
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 3px 10px;
+      border-radius: 999px; align-self: flex-start;
+    }
+    .s-act { background: rgba(74,222,128,.1); color: var(--ok); border: 1px solid rgba(74,222,128,.18); }
+    .back-link { font-size: 12px; color: var(--dim); transition: color .15s; }
+    .back-link:hover { color: var(--text); }
+    .hero h1 { font-size: clamp(48px, 8vw, 88px); font-weight: 900; letter-spacing: -4px; line-height: .93; color: var(--text); margin-bottom: 18px; }
+    .hero-tagline { font-size: 17px; color: var(--dim); max-width: 520px; line-height: 1.7; margin-bottom: 28px; }
+    .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge { font-size: 11px; font-weight: 500; color: var(--dim2); background: rgba(205,186,161,.06); border: 1px solid var(--bdr); padding: 4px 11px; border-radius: 7px; }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; padding: 10px 18px; border-radius: 9px; transition: all .15s; cursor: pointer; border: none; font-family: inherit; }
+    .btn-red { background: var(--acc); color: #fff; }
+    .btn-red:hover { background: #c4341f; transform: translateY(-1px); }
+    .btn-out { background: transparent; color: var(--text); border: 1px solid var(--bdr2); }
+    .btn-out:hover { background: var(--bdr); transform: translateY(-1px); }
+
+    /* ── SECTIONS ── */
+    .sec { padding: 64px 0; }
+    .sec-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 6px; }
+    .sec-title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 800; letter-spacing: -.3px; color: var(--text); margin-bottom: 18px; }
+    hr.div { border: none; border-top: 1px solid var(--bdr); margin: 56px 0; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 24px; } }
+    .rt { font-size: 15px; color: var(--dim); line-height: 1.78; }
+    .rt + .rt { margin-top: 12px; }
+    .hl { color: var(--text); font-weight: 600; }
+    .meta-list { display: flex; flex-direction: column; gap: 16px; }
+    .meta-key { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 3px; }
+    .meta-val { font-size: 14px; font-weight: 500; }
+    .lang-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 20px; }
+    .lang-pill { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; background: var(--sur); border: 1px solid var(--bdr); padding: 5px 12px; border-radius: 7px; }
+
+    /* ── VIDEOS ── */
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 700px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-wrap {
+      background: #0d0d11; border: 1px solid var(--bdr);
+      border-radius: var(--r); overflow: hidden;
+    }
+    .video-wrap video { width: 100%; display: block; }
+    .video-label { font-size: 11px; color: var(--dim2); padding: 10px 14px; border-top: 1px solid var(--bdr); }
+
+    /* ── SCREENSHOTS ── */
+    .strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--bdr2) transparent; }
+    .strip::-webkit-scrollbar { height: 3px; }
+    .strip::-webkit-scrollbar-thumb { background: var(--bdr2); border-radius: 3px; }
+    .shot {
+      flex-shrink: 0; width: 148px; aspect-ratio: 9/19.5;
+      background: var(--sur); border: 1px solid var(--bdr);
+      border-radius: 10px; overflow: hidden;
+      cursor: pointer; transition: transform .18s, border-color .18s;
+    }
+    .shot:hover { transform: scale(1.04); border-color: var(--bdr2); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── FEATURES ── */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    @media (max-width: 860px) { .feat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .feat-grid { grid-template-columns: 1fr; } }
+    .feat { background: var(--sur); border: 1px solid var(--bdr); border-radius: 12px; padding: 20px; transition: border-color .18s; }
+    .feat:hover { border-color: var(--bdr2); }
+    .feat-icon { font-size: 20px; margin-bottom: 10px; }
+    .feat-name { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+    .feat-desc { font-size: 13px; color: var(--dim); line-height: 1.6; }
+
+    /* ── CHALLENGE ── */
+    .challenge { background: linear-gradient(135deg, rgba(218,58,39,.07), rgba(45,48,33,.22)); border: 1px solid rgba(218,58,39,.18); border-radius: var(--r); padding: 28px 30px; margin-bottom: 14px; }
+    .challenge h4 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .challenge p { font-size: 14px; color: var(--dim); line-height: 1.75; }
+    .challenge p + p { margin-top: 10px; }
+
+    /* ── OPTIMIZATIONS ── */
+    .opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (max-width: 620px) { .opt-grid { grid-template-columns: 1fr; } }
+    .opt { background: var(--sur); border: 1px solid var(--bdr); border-radius: 12px; padding: 18px 20px; }
+    .opt-key { font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--acc); margin-bottom: 6px; }
+    .opt-val { font-size: 13px; color: var(--dim); line-height: 1.6; }
+
+    /* ── STACK ── */
+    .stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (max-width: 620px) { .stack-grid { grid-template-columns: 1fr; } }
+    .stack-item { background: var(--sur); border: 1px solid var(--bdr); border-radius: 12px; padding: 18px 20px; }
+    .stack-tech { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+    .stack-desc { font-size: 13px; color: var(--dim); line-height: 1.55; }
+
+    /* ── STATUS BOX ── */
+    .status-box { background: var(--sur); border: 1px solid var(--bdr); border-radius: var(--r); padding: 28px 30px; display: flex; gap: 32px; flex-wrap: wrap; }
+    .checks { display: flex; flex-direction: column; gap: 9px; flex: 1; min-width: 170px; }
+    .chk { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; }
+    .chk .ok { color: var(--ok); }
+    .chk .rd { color: var(--acc); }
+    .roadmap { flex: 1; min-width: 180px; }
+    .roadmap h5 { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 11px; }
+    .roadmap ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .roadmap li { font-size: 13px; color: var(--dim); display: flex; align-items: center; gap: 7px; }
+    .roadmap li::before { content: '→'; color: var(--acc); font-size: 11px; }
+    .status-note { flex: 1; min-width: 200px; font-size: 13px; color: var(--dim); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--bdr); padding: 32px 0; }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .foot-brand { display: flex; align-items: center; gap: 8px; }
+    .foot-logo { width: 24px; height: 24px; background: var(--acc); border-radius: 5px; display: grid; place-items: center; font-size: 9px; font-weight: 900; color: #fff; }
+    .foot-name { font-size: 12px; font-weight: 600; color: var(--dim); }
+    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .foot-links a { font-size: 12px; color: var(--dim); transition: color .15s; }
+    .foot-links a:hover { color: var(--text); }
+    .foot-copy { font-size: 11px; color: var(--dim2); }
+
+    /* ── LIGHTBOX ── */
+    .lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 1000; place-items: center; }
+    .lb.open { display: grid; }
+    .lb img { max-height: 92vh; max-width: 92vw; border-radius: 6px; }
+    .lb-x { position: absolute; top: 18px; right: 22px; font-size: 26px; color: var(--dim); cursor: pointer; line-height: 1; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--dim); cursor: pointer; padding: 12px; transition: color .15s; user-select: none; }
+    .lb-nav:hover { color: var(--text); }
+    .lb-prev { left: 16px; }
+    .lb-next { right: 16px; }
+    .lb-counter { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--dim2); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="brand">
+        <div class="brand-logo">RX</div>
+        <span class="brand-name">RoXxer Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="zenith.html" class="cur">Zenith</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="privacy.html">Privacidad</a>
+      </div>
+      <div class="burger" id="burger">☰</div>
+    </nav>
+    <div class="mob" id="mob">
+      <a href="index.html">Home</a>
+      <a href="zenith.html">Zenith</a>
+      <a href="slide-rush.html">Slide Rush</a>
+      <a href="privacy.html">Privacidad</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/zenith/Zenith1.jpg" alt="">
+  </div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">← Apps</a>
+        <span>/</span>
+        <span style="color:var(--dim);">Zenith</span>
+      </div>
+      <div class="hero-top">
+        <div class="app-icon-lg">
+          <img src="assets/zenith/ICON ZENITH (1).jpg" alt="Zenith icon">
+        </div>
+        <div class="hero-status">
+          <div class="status-chip s-act">● En desarrollo activo</div>
+          <span style="font-size:12px; color:var(--dim);">Android · Kotlin 2.3 · Offline-first</span>
+        </div>
+      </div>
+      <h1>Zenith</h1>
+      <p class="hero-tagline">Reproductor de música 100% offline para Android.<br>Sin streaming, sin suscripciones. Tu música, tu control.</p>
+      <div class="hero-badges">
+        <span class="badge">🇪🇸 Español</span>
+        <span class="badge">🇺🇸 English</span>
+        <span class="badge">🇧🇷 Português (BR)</span>
+        <span class="badge">Google Play — próximamente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="sec-label">Sobre el proyecto</div>
+        <p class="rt">Zenith nació de la frustración con los reproductores existentes: demasiado simples, sin personalización real, o dependientes de servicios en la nube. La idea fue construir algo diferente — un reproductor que trate tu música local como lo que es, <span class="hl">tuya</span>.</p>
+        <p class="rt">El proyecto demuestra que una app de categoría comercial puede construirse con arquitectura limpia, optimización seria y foco real en experiencia de usuario, sin depender de backends externos ni servicios de pago.</p>
+        <div class="lang-row">
+          <div class="lang-pill">🇪🇸 Español</div>
+          <div class="lang-pill">🇺🇸 English</div>
+          <div class="lang-pill">🇧🇷 Português (BR)</div>
+        </div>
+      </div>
+      <div class="meta-list">
+        <div><div class="meta-key">Estado</div><div class="meta-val">Desarrollo activo — pulido final</div></div>
+        <div><div class="meta-key">Plataforma</div><div class="meta-val">Android</div></div>
+        <div><div class="meta-key">Publicación</div><div class="meta-val">Google Play (próximamente)</div></div>
+        <div><div class="meta-key">Stack</div><div class="meta-val">Kotlin 2.3 · Jetpack Compose · Media3</div></div>
+        <div><div class="meta-key">Arquitectura</div><div class="meta-val">MVVM · Room · Flow · DataStore</div></div>
+        <div><div class="meta-key">Privacidad</div><div class="meta-val"><a href="privacy.html" style="color:var(--acc);">Ver política →</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" style="margin: 0 24px;" />
+
+<!-- VIDEOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">En acción</div>
+    <div class="sec-title">Zenith en movimiento</div>
+    <div class="video-grid">
+      <div class="video-wrap">
+        <video controls poster="assets/zenith/Zenith1.jpg" preload="none">
+          <source src="assets/zenith/GrabacionZenith.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Grabación — reproducción y UI</div>
+      </div>
+      <div class="video-wrap">
+        <video controls poster="assets/zenith/Zenith2 (1).jpg" preload="none">
+          <source src="assets/zenith/Timeline 1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Timeline — animaciones y visualizador</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-label" style="margin-bottom:14px;">Capturas de pantalla</div>
+    <div class="strip" id="strip">
+      <div class="shot" data-idx="0"><img src="assets/zenith/Zenith2 (1).jpg" alt="Screen 1"></div>
+      <div class="shot" data-idx="1"><img src="assets/zenith/Zenith2 (2).jpg" alt="Screen 2"></div>
+      <div class="shot" data-idx="2"><img src="assets/zenith/Zenith2 (3).jpg" alt="Screen 3"></div>
+      <div class="shot" data-idx="3"><img src="assets/zenith/Zenith2 (4).jpg" alt="Screen 4"></div>
+      <div class="shot" data-idx="4"><img src="assets/zenith/Zenith2 (5).jpg" alt="Screen 5"></div>
+      <div class="shot" data-idx="5"><img src="assets/zenith/Zenith2 (6).jpg" alt="Screen 6"></div>
+      <div class="shot" data-idx="6"><img src="assets/zenith/Zenith2 (7).jpg" alt="Screen 7"></div>
+      <div class="shot" data-idx="7"><img src="assets/zenith/Zenith2 (8).jpg" alt="Screen 8"></div>
+      <div class="shot" data-idx="8"><img src="assets/zenith/Zenith2 (9).jpg" alt="Screen 9"></div>
+      <div class="shot" data-idx="9"><img src="assets/zenith/Zenith2 (10).jpg" alt="Screen 10"></div>
+      <div class="shot" data-idx="10"><img src="assets/zenith/Zenith2 (11).jpg" alt="Screen 11"></div>
+      <div class="shot" data-idx="11"><img src="assets/zenith/Zenith2 (12).jpg" alt="Screen 12"></div>
+      <div class="shot" data-idx="12"><img src="assets/zenith/Zenith2 (13).jpg" alt="Screen 13"></div>
+      <div class="shot" data-idx="13"><img src="assets/zenith/Zenith2 (14).jpg" alt="Screen 14"></div>
+      <div class="shot" data-idx="14"><img src="assets/zenith/Zenith2 (15).jpg" alt="Screen 15"></div>
+      <div class="shot" data-idx="15"><img src="assets/zenith/Zenith2 (16).jpg" alt="Screen 16"></div>
+      <div class="shot" data-idx="16"><img src="assets/zenith/Zenith2 (17).jpg" alt="Screen 17"></div>
+      <div class="shot" data-idx="17"><img src="assets/zenith/Zenith2 (18).jpg" alt="Screen 18"></div>
+      <div class="shot" data-idx="18"><img src="assets/zenith/Zenith2 (19).jpg" alt="Screen 19"></div>
+      <div class="shot" data-idx="19"><img src="assets/zenith/Zenith2 (20).jpg" alt="Screen 20"></div>
+      <div class="shot" data-idx="20"><img src="assets/zenith/Zenith2 (21).jpg" alt="Screen 21"></div>
+      <div class="shot" data-idx="21"><img src="assets/zenith/Zenith2 (22).jpg" alt="Screen 22"></div>
+      <div class="shot" data-idx="22"><img src="assets/zenith/Zenith2 (23).jpg" alt="Screen 23"></div>
+      <div class="shot" data-idx="23"><img src="assets/zenith/Zenith2 (24).jpg" alt="Screen 24"></div>
+      <div class="shot" data-idx="24"><img src="assets/zenith/Zenith2 (25).jpg" alt="Screen 25"></div>
+      <div class="shot" data-idx="25"><img src="assets/zenith/Zenith2 (26).jpg" alt="Screen 26"></div>
+      <div class="shot" data-idx="26"><img src="assets/zenith/Zenith2 (27).jpg" alt="Screen 27"></div>
+    </div>
+    <p style="font-size:12px; color:var(--dim2); margin-top:8px;">Clic en cualquier imagen para ampliar · Navega con ← →</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-label">Características</div>
+    <div class="sec-title">Lo que hace a Zenith diferente.</div>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">🎨</div><div class="feat-name">Personalización total</div><p class="feat-desc">Carátulas, nombres, alias, imagen de perfil y fondos. Tu app, tu identidad.</p></div>
+      <div class="feat"><div class="feat-icon">📴</div><div class="feat-name">100% Offline</div><p class="feat-desc">Sin streaming, sin suscripciones. Solo archivos locales en tu dispositivo.</p></div>
+      <div class="feat"><div class="feat-icon">🌊</div><div class="feat-name">Visualizadores en tiempo real</div><p class="feat-desc">Lineal y aurora circular con BeatDetector propio, animados a 60fps.</p></div>
+      <div class="feat"><div class="feat-icon">🔀</div><div class="feat-name">Crossfade configurable</div><p class="feat-desc">Transiciones suaves con engine de polling adaptativo entre canciones.</p></div>
+      <div class="feat"><div class="feat-icon">🎚️</div><div class="feat-name">Ecualizador + perfiles</div><p class="feat-desc">Ecualizador integrado con perfiles guardados por usuario.</p></div>
+      <div class="feat"><div class="feat-icon">↕️</div><div class="feat-name">Cola con drag & drop</div><p class="feat-desc">Reordena tu cola de reproducción con gestos nativos sin interrumpir la música.</p></div>
+      <div class="feat"><div class="feat-icon">🖼️</div><div class="feat-name">Color dinámico</div><p class="feat-desc">La interfaz adapta su paleta al artwork de la canción actual en tiempo real.</p></div>
+      <div class="feat"><div class="feat-icon">📊</div><div class="feat-name">Analytics de escucha</div><p class="feat-desc">Estadísticas, artistas más escuchados y tiempo total de escucha.</p></div>
+      <div class="feat"><div class="feat-icon">🌐</div><div class="feat-name">Multiidioma</div><p class="feat-desc">Español, Inglés y Portugués (Brasil) desde el primer día.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" style="margin: 0 24px;" />
+
+<!-- CHALLENGES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">Diferencial & Retos</div>
+    <div class="challenge">
+      <h4>Personalización como filosofía</h4>
+      <p>La mayoría de reproductores te dan control sobre la reproducción. Zenith te da control sobre todo: la apariencia de cada canción, los nombres que ves, la imagen de perfil, el fondo de la app y el tema visual.</p>
+      <p style="margin-top:8px; color:var(--text);">Carátulas editables por canción, playlist o carpeta · Nombres y alias personalizados · Color dinámico · Temas claro, oscuro y AMOLED puro.</p>
+    </div>
+    <div class="challenge">
+      <h4>Reto principal: 60fps bajo carga total</h4>
+      <p>Mantener 60fps mientras visualizadores en tiempo real, UI animada en Compose, crossfade entre pistas y color dinámico corren simultáneamente. Sin optimización, cualquiera de estos sistemas degrada el rendimiento. Con todos activos, el riesgo se multiplica.</p>
+      <p style="margin-top:8px;"><span class="hl">Resultado:</span> rendimiento estable bajo carga total, sin memory leaks conocidos, comparable a reproductores comerciales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIMIZATIONS -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-label">Optimizaciones clave</div>
+    <div class="sec-title">Problemas reales, soluciones reales.</div>
+    <div class="opt-grid">
+      <div class="opt"><div class="opt-key">Queries N+1</div><p class="opt-val">Query único con GROUP BY → Map en el ViewModel. Elimina roundtrips a la DB.</p></div>
+      <div class="opt"><div class="opt-key">Visualizadores idle</div><p class="opt-val">Animaciones condicionales con Animatable. Sin audio, se pausan y liberan CPU.</p></div>
+      <div class="opt"><div class="opt-key">Sincronización de frames</div><p class="opt-val">delay(16ms) fijo reemplazado por withFrameMillis. Sincroniza al refresh rate real.</p></div>
+      <div class="opt"><div class="opt-key">Crossfade engine</div><p class="opt-val">Polling adaptativo: 2s → 500ms → 40ms al acercarse al final de la pista.</p></div>
+      <div class="opt"><div class="opt-key">Cola de reproducción</div><p class="opt-val">Surface container → Row optimizado. Reduce capas de composición y overdraw.</p></div>
+      <div class="opt"><div class="opt-key">NowPlaying UI</div><p class="opt-val">Refactor en sub-componentes atómicos para reducir recomposición innecesaria.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" style="margin: 0 24px;" />
+
+<!-- STACK -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">Stack técnico</div>
+    <div class="sec-title">Cada decisión tiene un por qué.</div>
+    <div class="stack-grid">
+      <div class="stack-item"><div class="stack-tech">Kotlin 2.3 + Jetpack Compose + Material 3</div><p class="stack-desc">UI 100% declarativa, sin XML. Gestión eficiente de recomposición con keys y remember estables.</p></div>
+      <div class="stack-item"><div class="stack-tech">Media3 / ExoPlayer + MediaLibraryService</div><p class="stack-desc">Reproducción robusta con soporte Android Auto. Servicio en foreground con notificación de control.</p></div>
+      <div class="stack-item"><div class="stack-tech">Room + KSP + Flow</div><p class="stack-desc">DB reactiva. Todos los queries exponen Flow&lt;T&gt;, transformados en el ViewModel antes del UI.</p></div>
+      <div class="stack-item"><div class="stack-tech">DataStore + Coil + Glance</div><p class="stack-desc">Preferencias sin bloqueos, caché de imágenes eficiente y widgets nativos modernos.</p></div>
+      <div class="stack-item"><div class="stack-tech">Arquitectura MVVM</div><p class="stack-desc">MusicViewModel como fuente central de estado. UI completamente reactiva, repositorio único de datos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-label" style="margin-bottom:14px;">Estado del proyecto</div>
+    <div class="status-box">
+      <div class="checks">
+        <div class="chk"><span class="ok">✓</span> Arquitectura limpia</div>
+        <div class="chk"><span class="ok">✓</span> Sin memory leaks conocidos</div>
+        <div class="chk"><span class="ok">✓</span> UI fluida a 60fps</div>
+        <div class="chk"><span class="rd">→</span> Rumbo a Play Store</div>
+      </div>
+      <div class="roadmap">
+        <h5>Próximamente</h5>
+        <ul>
+          <li>Baseline Profiles (cold start)</li>
+          <li>Scrobbling: Last.fm / ListenBrainz</li>
+          <li>Sleep timer configurable</li>
+          <li>Publicación en Google Play</li>
+        </ul>
+      </div>
+      <div class="status-note">Zenith se encuentra en estado sólido de producción local: arquitectura limpia, queries optimizadas y UI fluida bajo carga. Actualmente en fase de pulido final, con publicación en Google Play planificada.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <div class="foot-logo">RX</div>
+        <span class="foot-name">RoXxer Studio</span>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">← Volver a Apps</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="privacy.html">Privacidad Zenith</a>
+        <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
+      </div>
+      <span class="foot-copy">© 2025 RoXxer</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <span class="lb-x" id="lbX">✕</span>
+  <span class="lb-nav lb-prev" id="lbPrev">‹</span>
+  <img id="lbImg" src="" alt="">
+  <span class="lb-nav lb-next" id="lbNext">›</span>
+  <span class="lb-counter" id="lbCount"></span>
+</div>
+
+<script>
+  // Burger
+  document.getElementById('burger')?.addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Lightbox
+  const shots = [...document.querySelectorAll('.shot')];
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCount = document.getElementById('lbCount');
+  let cur = 0;
+
+  const srcs = shots.map(s => s.querySelector('img')?.src || '');
+
+  function openLb(i) {
+    cur = i;
+    lbImg.src = srcs[cur];
+    lbCount.textContent = (cur + 1) + ' / ' + srcs.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function navLb(dir) {
+    cur = (cur + dir + srcs.length) % srcs.length;
+    lbImg.src = srcs[cur];
+    lbCount.textContent = (cur + 1) + ' / ' + srcs.length;
+  }
+
+  shots.forEach((s, i) => s.addEventListener('click', () => openLb(i)));
+  document.getElementById('lbX').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); navLb(1); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') navLb(-1);
+    if (e.key === 'ArrowRight') navLb(1);
+  });
+</script>
+</body>
+</html>

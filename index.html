@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RoXxer Studio</title>
+  <meta name="description" content="RoXxer Studio — Apps Android con arquitectura limpia y foco en experiencia real de usuario." />
+  <meta name="theme-color" content="#131318" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #131318;
+      --sur:     #1b1b21;
+      --text:    #CDBAA1;
+      --dim:     rgba(205,186,161,.5);
+      --dim2:    rgba(205,186,161,.22);
+      --acc:     #DA3A27;
+      --a-dim:   rgba(218,58,39,.12);
+      --bdr:     rgba(205,186,161,.08);
+      --bdr2:    rgba(205,186,161,.15);
+      --ok:      #4ade80;
+      --max:     1100px;
+      --r:       14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(180%); background: rgba(19,19,24,.9); border-bottom: 1px solid var(--bdr); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-logo { width: 30px; height: 30px; background: var(--acc); border-radius: 7px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; flex-shrink: 0; }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: -.3px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--dim); padding: 6px 11px; border-radius: 7px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--bdr); }
+    .nav-links a.cur { color: var(--text); }
+    .burger { display: none; cursor: pointer; font-size: 20px; color: var(--dim); padding: 4px; }
+    .mob { display: none; flex-direction: column; gap: 2px; padding: 10px 0 14px; border-top: 1px solid var(--bdr); }
+    .mob a { font-size: 15px; font-weight: 500; color: var(--dim); padding: 9px 4px; transition: color .15s; }
+    .mob a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } .burger { display: block; } }
+
+    /* ── HERO ── */
+    .hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -80px; left: 35%; transform: translateX(-50%); width: 640px; height: 640px; background: radial-gradient(circle, rgba(218,58,39,.09) 0%, transparent 65%); pointer-events: none; }
+    .hero-chip { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--acc); background: var(--a-dim); border: 1px solid rgba(218,58,39,.2); padding: 4px 11px; border-radius: 999px; margin-bottom: 22px; }
+    .hero-chip .dot { width: 5px; height: 5px; background: var(--acc); border-radius: 50%; }
+    .hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 900; line-height: 1.04; letter-spacing: -2px; color: var(--text); margin-bottom: 18px; }
+    .hero h1 em { color: var(--acc); font-style: normal; }
+    .hero p { font-size: 16px; color: var(--dim); max-width: 460px; line-height: 1.75; margin-bottom: 34px; }
+    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; padding: 10px 18px; border-radius: 9px; transition: all .15s; cursor: pointer; border: none; font-family: inherit; }
+    .btn-red { background: var(--acc); color: #fff; }
+    .btn-red:hover { background: #c4341f; transform: translateY(-1px); }
+    .btn-out { background: transparent; color: var(--text); border: 1px solid var(--bdr2); }
+    .btn-out:hover { background: var(--bdr); transform: translateY(-1px); }
+
+    /* ── SECTION ── */
+    .sec { padding: 64px 0; }
+    .sec-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 6px; }
+    .sec-title { font-size: clamp(20px, 2.5vw, 27px); font-weight: 800; letter-spacing: -.4px; color: var(--text); margin-bottom: 6px; }
+    .sec-sub { font-size: 14px; color: var(--dim); max-width: 420px; line-height: 1.7; margin-bottom: 40px; }
+
+    /* ── APP CARDS ── */
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--sur);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .card:hover { border-color: var(--bdr2); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .card:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* cover */
+    .card-cover {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #0e0e13;
+    }
+    .card-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .card:hover .card-cover img { transform: scale(1.04); }
+    .card-cover::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(19,19,24,.7) 100%);
+    }
+    .card-icon {
+      position: absolute; bottom: -20px; left: 20px; z-index: 1;
+      width: 52px; height: 52px;
+      border-radius: 13px;
+      border: 3px solid var(--sur);
+      background: var(--bg);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* body */
+    .card-body { padding: 28px 20px 22px; flex: 1; display: flex; flex-direction: column; }
+    .card-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 3px 9px;
+      border-radius: 999px; margin-bottom: 12px; align-self: flex-start;
+    }
+    .s-act { background: rgba(74,222,128,.1); color: var(--ok); border: 1px solid rgba(74,222,128,.18); }
+    .s-arc { background: var(--bdr); color: var(--dim); border: 1px solid var(--bdr); }
+
+    .card-name { font-size: 20px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: var(--dim); line-height: 1.68; margin-bottom: 16px; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+    .tag { font-size: 10px; font-weight: 500; color: var(--dim2); background: var(--bdr); padding: 3px 8px; border-radius: 5px; border: 1px solid var(--bdr); }
+
+    /* ── COMING SOON CARD ── */
+    .card-soon { border-style: dashed; cursor: default; }
+    .card-soon:hover { transform: none; box-shadow: none; border-color: var(--bdr); }
+    .soon-body { padding: 36px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; height: 100%; min-height: 200px; justify-content: center; }
+    .soon-icon { font-size: 28px; opacity: .3; }
+    .soon-title { font-size: 16px; font-weight: 700; color: var(--dim2); }
+    .soon-sub { font-size: 12px; color: var(--dim2); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--bdr); padding: 32px 0; }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .foot-brand { display: flex; align-items: center; gap: 8px; }
+    .foot-logo { width: 24px; height: 24px; background: var(--acc); border-radius: 5px; display: grid; place-items: center; font-size: 9px; font-weight: 900; color: #fff; }
+    .foot-name { font-size: 12px; font-weight: 600; color: var(--dim); }
+    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .foot-links a { font-size: 12px; color: var(--dim); transition: color .15s; }
+    .foot-links a:hover { color: var(--text); }
+    .foot-copy { font-size: 11px; color: var(--dim2); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="brand">
+        <div class="brand-logo">RX</div>
+        <span class="brand-name">RoXxer Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="cur">Home</a>
+        <a href="zenith.html">Zenith</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="privacy.html">Privacidad</a>
+      </div>
+      <div class="burger" id="burger">☰</div>
+    </nav>
+    <div class="mob" id="mob">
+      <a href="index.html">Home</a>
+      <a href="zenith.html">Zenith</a>
+      <a href="slide-rush.html">Slide Rush</a>
+      <a href="privacy.html">Privacidad</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-chip"><span class="dot"></span>Developer Portfolio</div>
+    <h1>Apps con propósito.<br><em>Arquitectura limpia.</em></h1>
+    <p>Desarrollo Android enfocado en experiencia real de usuario — offline-first, sin backends externos, sin compromiso en calidad.</p>
+    <div class="hero-cta">
+      <a href="zenith.html" class="btn btn-red">Ver Zenith →</a>
+      <a href="#apps" class="btn btn-out">Explorar apps</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="apps">
+  <div class="wrap">
+    <div class="sec-label">Portfolio</div>
+    <div class="sec-title">Proyectos</div>
+    <p class="sec-sub">Apps desarrolladas con arquitectura moderna y foco en calidad real.</p>
+
+    <div class="cards">
+
+      <!-- Zenith -->
+      <a href="zenith.html" class="card" tabindex="0" aria-label="Ver proyecto Zenith">
+        <div class="card-cover">
+          <img src="assets/zenith/Zenith1.jpg" alt="Zenith — reproductor offline">
+          <div class="card-icon">
+            <img src="assets/zenith/ICON ZENITH (1).jpg" alt="Zenith icon">
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-status s-act">● Desarrollo activo</div>
+          <div class="card-name">Zenith</div>
+          <p class="card-desc">Reproductor de música 100% offline para Android. Sin streaming, sin suscripciones. Visualizadores en tiempo real, personalización total y arquitectura MVVM limpia.</p>
+          <div class="tags">
+            <span class="tag">Kotlin 2.3</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">Media3</span>
+            <span class="tag">Offline-first</span>
+            <span class="tag">Android</span>
+          </div>
+          <span class="btn btn-red" style="align-self:flex-start;">Ver proyecto →</span>
+        </div>
+      </a>
+
+      <!-- Slide Rush -->
+      <a href="slide-rush.html" class="card" tabindex="0" aria-label="Ver proyecto Slide Rush">
+        <div class="card-cover">
+          <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush">
+        </div>
+        <div class="card-body">
+          <div class="card-status s-arc">◈ Archivado</div>
+          <div class="card-name">Slide Rush</div>
+          <p class="card-desc">Juego de lógica basado en el puzzle deslizante clásico. Cuadrícula variable de 3×3 a 10×10. Proyecto personal archivado, código no disponible.</p>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">Mobile</span>
+            <span class="tag">Puzzle / Logic</span>
+          </div>
+          <span class="btn btn-out" style="align-self:flex-start;">Ver detalles →</span>
+        </div>
+      </a>
+
+      <!-- Próximamente -->
+      <div class="card card-soon">
+        <div class="soon-body">
+          <div class="soon-icon">✦</div>
+          <div class="soon-title">Proyecto secreto</div>
+          <p class="soon-sub">En prototipado. Más info pronto.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <div class="foot-logo">RX</div>
+        <span class="foot-name">RoXxer Studio</span>
+      </div>
+      <div class="foot-links">
+        <a href="zenith.html">Zenith</a>
+        <a href="slide-rush.html">Slide Rush</a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
+      </div>
+      <span class="foot-copy">© 2025 RoXxer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mob = document.getElementById('mob');
+  burger?.addEventListener('click', () => {
+    mob.style.display = mob.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+</body>
+</html>
