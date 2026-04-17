@@ -1,17 +1,18 @@
-# 🎮 RoXxerGames Studios
+# RoXxer Studio
 
-Estudio indie que crea experiencias únicas, divertidas y con personalidad.
+Desarrollo de apps Android con arquitectura limpia, offline-first y foco en experiencia real de usuario.
 
-## 🚀 Juegos
-- **Catlantis** — _En desarrollo_. Plataformas mágico–sarcasticón con acción y humor.
-- **Puzzle Galaxy** — Rompecabezas desafiantes con modos por tiempo y por movimientos. Proximo!
+## Apps
 
-## 🔗 Sitio
-- Web: https://roxxer98.github.io/
-- Privacidad: https://roxxer98.github.io/privacy.html
-- app-ads.txt: https://roxxer98.github.io/app-ads.txt
+- **Zenith** — Reproductor de música 100% offline para Android. Kotlin 2.3 · Jetpack Compose · Media3 · MVVM. En desarrollo activo, próximamente en Google Play.
+- **Slide Rush** — Juego de lógica basado en el puzzle deslizante clásico (3×3 a 10×10). Proyecto archivado, desarrollado con Unity.
 
-## 📩 Contacto
-- Soporte: **roxxergamesstudios@gmail.com**
+## Links
 
+- Sitio: https://roxxer98.github.io/
+- Portfolio: https://roxxerstudio.vercel.app/
+- Privacidad Zenith: https://roxxer98.github.io/privacy.html
 
+## Contacto
+
+roxxergamesstudios@gmail.com
