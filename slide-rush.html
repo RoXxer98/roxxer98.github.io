@@ -9,153 +9,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:    #131318;
-      --sur:   #1b1b21;
-      --text:  #CDBAA1;
-      --dim:   rgba(205,186,161,.5);
-      --dim2:  rgba(205,186,161,.22);
-      --acc:   #DA3A27;
-      --a-dim: rgba(218,58,39,.12);
-      --bdr:   rgba(205,186,161,.08);
-      --bdr2:  rgba(205,186,161,.15);
-      --ok:    #4ade80;
-      --max:   1100px;
-      --r:     14px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ── NAV ── */
-    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(180%); background: rgba(19,19,24,.9); border-bottom: 1px solid var(--bdr); }
-    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .brand-logo { width: 30px; height: 30px; background: var(--acc); border-radius: 7px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; flex-shrink: 0; }
-    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: -.3px; }
-    .nav-links { display: flex; align-items: center; gap: 2px; }
-    .nav-links a { font-size: 13px; font-weight: 500; color: var(--dim); padding: 6px 11px; border-radius: 7px; transition: color .15s, background .15s; }
-    .nav-links a:hover { color: var(--text); background: var(--bdr); }
-    .nav-links a.cur { color: var(--text); }
-    .burger { display: none; cursor: pointer; font-size: 20px; color: var(--dim); padding: 4px; }
-    .mob { display: none; flex-direction: column; gap: 2px; padding: 10px 0 14px; border-top: 1px solid var(--bdr); }
-    .mob a { font-size: 15px; font-weight: 500; color: var(--dim); padding: 9px 4px; transition: color .15s; }
-    .mob a:hover { color: var(--text); }
-    @media (max-width: 640px) { .nav-links { display: none; } .burger { display: block; } }
-
-    /* ── HERO ── */
-    .hero { position: relative; overflow: hidden; min-height: 440px; display: flex; align-items: flex-end; }
-    .hero-bg { position: absolute; inset: 0; background: #0d0d11; }
-    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .3; }
-    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(19,19,24,.2) 0%, rgba(19,19,24,.65) 50%, var(--bg) 100%); }
-    .hero-content { position: relative; z-index: 1; width: 100%; padding: 48px 0 52px; }
-    .breadcrumb { font-size: 12px; color: var(--dim2); display: flex; align-items: center; gap: 6px; margin-bottom: 22px; }
-    .breadcrumb a { color: var(--dim); transition: color .15s; }
-    .breadcrumb a:hover { color: var(--text); }
-    .arc-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 14px; background: var(--bdr); color: var(--dim); border: 1px solid var(--bdr); }
-    .hero h1 { font-size: clamp(44px, 7vw, 76px); font-weight: 900; letter-spacing: -3px; line-height: .93; margin-bottom: 16px; }
-    .hero-sub { font-size: 16px; color: var(--dim); max-width: 480px; line-height: 1.7; }
-
-    /* ── ARCHIVED BANNER ── */
-    .arc-banner { background: rgba(205,186,161,.04); border: 1px solid var(--bdr2); border-radius: 12px; padding: 18px 22px; display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
-    .arc-banner-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-    .arc-banner h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
-    .arc-banner p { font-size: 13px; color: var(--dim); line-height: 1.55; }
-
-    /* ── LAYOUT ── */
-    .sec { padding: 56px 0; }
-    .sec-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 6px; }
-    .sec-title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 800; letter-spacing: -.3px; color: var(--text); margin-bottom: 18px; }
-    hr.div { border: none; border-top: 1px solid var(--bdr); margin: 48px 0; }
-
-    .two-col { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: start; }
-    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
-
-    /* info cards */
-    .ic { background: var(--sur); border: 1px solid var(--bdr); border-radius: 12px; padding: 22px; }
-    .ic + .ic { margin-top: 14px; }
-    .ic h4 { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); margin-bottom: 13px; }
-    .ic p { font-size: 14px; color: var(--dim); line-height: 1.72; }
-    .ic p + p { margin-top: 8px; }
-    .ic ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .ic li { font-size: 14px; color: var(--dim); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
-    .ic li::before { content: '·'; color: var(--acc); flex-shrink: 0; }
-
-    /* media side */
-    .media-stack { display: flex; flex-direction: column; gap: 14px; }
-    .phone-preview { aspect-ratio: 9/16; background: var(--sur); border: 1px solid var(--bdr); border-radius: 14px; overflow: hidden; }
-    .phone-preview img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* ── SCREENSHOTS ── */
-    .strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--bdr2) transparent; }
-    .strip::-webkit-scrollbar { height: 3px; }
-    .strip::-webkit-scrollbar-thumb { background: var(--bdr2); border-radius: 3px; }
-    .shot { flex-shrink: 0; width: 148px; aspect-ratio: 9/16; background: var(--sur); border: 1px solid var(--bdr); border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform .18s, border-color .18s; }
-    .shot:hover { transform: scale(1.04); border-color: var(--bdr2); }
-    .shot img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* ── VIDEOS ── */
-    .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    @media (max-width: 720px) { .vid-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 960px) and (min-width: 720px) { .vid-grid { grid-template-columns: repeat(2, 1fr); } }
-    .vid-wrap { background: #0d0d11; border: 1px solid var(--bdr); border-radius: var(--r); overflow: hidden; }
-    .vid-wrap video { width: 100%; display: block; }
-    .vid-label { font-size: 11px; color: var(--dim2); padding: 9px 13px; border-top: 1px solid var(--bdr); }
-
-    /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--bdr); padding: 32px 0; }
-    .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-    .foot-brand { display: flex; align-items: center; gap: 8px; }
-    .foot-logo { width: 24px; height: 24px; background: var(--acc); border-radius: 5px; display: grid; place-items: center; font-size: 9px; font-weight: 900; color: #fff; }
-    .foot-name { font-size: 12px; font-weight: 600; color: var(--dim); }
-    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
-    .foot-links a { font-size: 12px; color: var(--dim); transition: color .15s; }
-    .foot-links a:hover { color: var(--text); }
-    .foot-copy { font-size: 11px; color: var(--dim2); }
-
-    /* ── LIGHTBOX ── */
-    .lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 1000; place-items: center; }
-    .lb.open { display: grid; }
-    .lb img { max-height: 92vh; max-width: 92vw; border-radius: 6px; }
-    .lb-x { position: absolute; top: 18px; right: 22px; font-size: 26px; color: var(--dim); cursor: pointer; }
-    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--dim); cursor: pointer; padding: 12px; transition: color .15s; user-select: none; }
-    .lb-nav:hover { color: var(--text); }
-    .lb-prev { left: 16px; }
-    .lb-next { right: 16px; }
-    .lb-counter { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--dim2); }
-  </style>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/slide-rush.css">
 </head>
 <body>
 
+<!-- ─── NAVBAR ─── -->
 <header>
   <div class="wrap">
     <nav>
       <a href="index.html" class="brand">
         <div class="brand-logo">RX</div>
-        <span class="brand-name">RoXxer Studio</span>
+        <div class="brand-text">
+          <span class="brand-name">RoXxer</span>
+          <span class="brand-sub">Studio</span>
+        </div>
       </a>
+      <span class="nav-sep"></span>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="zenith.html">Zenith</a>
         <a href="slide-rush.html" class="cur">Slide Rush</a>
         <a href="privacy.html">Privacidad</a>
       </div>
-      <div class="burger" id="burger">☰</div>
+      <button class="burger" id="burger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
-    <div class="mob" id="mob">
-      <a href="index.html">Home</a>
-      <a href="zenith.html">Zenith</a>
-      <a href="slide-rush.html">Slide Rush</a>
-      <a href="privacy.html">Privacidad</a>
-    </div>
   </div>
 </header>
+<div class="mob-overlay" id="mobOverlay">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="zenith.html">Zenith</a>
+  <a href="slide-rush.html" class="cur">Slide Rush</a>
+  <a href="privacy.html">Privacidad</a>
+</div>
 
-<!-- HERO -->
+<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-bg">
     <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="">
@@ -164,8 +55,7 @@
     <div class="wrap">
       <div class="breadcrumb">
         <a href="index.html">← Apps</a>
-        <span>/</span>
-        <span style="color:var(--dim);">Slide Rush</span>
+        <span>/</span><span>Slide Rush</span>
       </div>
       <div class="arc-chip">◈ Proyecto archivado</div>
       <h1>Slide Rush</h1>
@@ -174,7 +64,7 @@
   </div>
 </section>
 
-<!-- MAIN CONTENT -->
+<!-- ─── MAIN ─── -->
 <section class="sec">
   <div class="wrap">
 
@@ -187,8 +77,7 @@
     </div>
 
     <div class="two-col">
-
-      <!-- LEFT: info -->
+      <!-- LEFT -->
       <div>
         <div class="ic">
           <h4>Sobre el proyecto</h4>
@@ -196,7 +85,6 @@
           <p>El objetivo es reconstruir la imagen original en el menor número de movimientos posible, aumentando progresivamente la dificultad al incrementar el tamaño de la cuadrícula.</p>
           <p>Desarrollado como proyecto personal con foco en lógica de juego, diseño de mecánicas y desarrollo mobile con Unity.</p>
         </div>
-
         <div class="ic">
           <h4>Lo que aprendí</h4>
           <ul>
@@ -207,7 +95,6 @@
             <li>Importancia del testing de edge cases en lógica de puzzles</li>
           </ul>
         </div>
-
         <div class="ic">
           <h4>Si lo rehaciera…</h4>
           <ul>
@@ -220,79 +107,86 @@
         </div>
       </div>
 
-      <!-- RIGHT: media -->
-      <div class="media-stack">
+      <!-- RIGHT -->
+      <div>
         <div class="phone-preview">
           <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush portada">
         </div>
-        <div class="ic" style="text-align:center;">
+        <div class="ic" style="margin-top:14px; text-align:center;">
           <h4>Stack</h4>
-          <div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:4px;">
-            <span style="font-size:11px; color:var(--dim2); background:var(--bdr); padding:3px 9px; border-radius:5px; border:1px solid var(--bdr);">Unity</span>
-            <span style="font-size:11px; color:var(--dim2); background:var(--bdr); padding:3px 9px; border-radius:5px; border:1px solid var(--bdr);">C#</span>
-            <span style="font-size:11px; color:var(--dim2); background:var(--bdr); padding:3px 9px; border-radius:5px; border:1px solid var(--bdr);">Android</span>
-            <span style="font-size:11px; color:var(--dim2); background:var(--bdr); padding:3px 9px; border-radius:5px; border:1px solid var(--bdr);">Mobile UI</span>
+          <div class="stack-tags">
+            <span class="stag">Unity</span>
+            <span class="stag">C#</span>
+            <span class="stag">Android</span>
+            <span class="stag">Mobile UI</span>
+            <span class="stag">Puzzle / Logic</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<hr class="div" style="margin: 0 24px;" />
+<hr class="div" style="margin-left:24px; margin-right:24px;">
 
-<!-- SCREENSHOTS -->
+<!-- ─── SCREENSHOTS ─── -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-label" style="margin-bottom:14px;">Capturas de pantalla</div>
     <div class="strip" id="strip">
-      <div class="shot" data-idx="0"><img src="assets/slide-rush/SlideRush00.jpeg" alt="Screen 1"></div>
-      <div class="shot" data-idx="1"><img src="assets/slide-rush/SlideRush01.jpeg" alt="Screen 2"></div>
-      <div class="shot" data-idx="2"><img src="assets/slide-rush/SlideRush02.jpeg" alt="Screen 3"></div>
-      <div class="shot" data-idx="3"><img src="assets/slide-rush/SlideRush03.jpeg" alt="Screen 4"></div>
-      <div class="shot" data-idx="4"><img src="assets/slide-rush/SlideRush04.jpeg" alt="Screen 5"></div>
-      <div class="shot" data-idx="5"><img src="assets/slide-rush/SlideRush05.jpeg" alt="Screen 6"></div>
-      <div class="shot" data-idx="6"><img src="assets/slide-rush/SlideRush06.jpeg" alt="Screen 7"></div>
-      <div class="shot" data-idx="7"><img src="assets/slide-rush/SlideRush07.jpeg" alt="Screen 8"></div>
-      <div class="shot" data-idx="8"><img src="assets/slide-rush/SlideRush08.jpeg" alt="Screen 9"></div>
-      <div class="shot" data-idx="9"><img src="assets/slide-rush/SlideRush09.jpeg" alt="Screen 10"></div>
-      <div class="shot" data-idx="10"><img src="assets/slide-rush/SlideRush11.jpeg" alt="Screen 11"></div>
-      <div class="shot" data-idx="11"><img src="assets/slide-rush/SlideRush12.jpeg" alt="Screen 12"></div>
-      <div class="shot" data-idx="12"><img src="assets/slide-rush/SlideRush13.jpeg" alt="Screen 13"></div>
-      <div class="shot" data-idx="13"><img src="assets/slide-rush/SlideRush14.jpeg" alt="Screen 14"></div>
+      <div class="shot" data-idx="0"><img src="assets/slide-rush/SlideRush00.jpeg" alt="1"></div>
+      <div class="shot" data-idx="1"><img src="assets/slide-rush/SlideRush01.jpeg" alt="2"></div>
+      <div class="shot" data-idx="2"><img src="assets/slide-rush/SlideRush02.jpeg" alt="3"></div>
+      <div class="shot" data-idx="3"><img src="assets/slide-rush/SlideRush03.jpeg" alt="4"></div>
+      <div class="shot" data-idx="4"><img src="assets/slide-rush/SlideRush04.jpeg" alt="5"></div>
+      <div class="shot" data-idx="5"><img src="assets/slide-rush/SlideRush05.jpeg" alt="6"></div>
+      <div class="shot" data-idx="6"><img src="assets/slide-rush/SlideRush06.jpeg" alt="7"></div>
+      <div class="shot" data-idx="7"><img src="assets/slide-rush/SlideRush07.jpeg" alt="8"></div>
+      <div class="shot" data-idx="8"><img src="assets/slide-rush/SlideRush08.jpeg" alt="9"></div>
+      <div class="shot" data-idx="9"><img src="assets/slide-rush/SlideRush09.jpeg" alt="10"></div>
+      <div class="shot" data-idx="10"><img src="assets/slide-rush/SlideRush11.jpeg" alt="11"></div>
+      <div class="shot" data-idx="11"><img src="assets/slide-rush/SlideRush12.jpeg" alt="12"></div>
+      <div class="shot" data-idx="12"><img src="assets/slide-rush/SlideRush13.jpeg" alt="13"></div>
+      <div class="shot" data-idx="13"><img src="assets/slide-rush/SlideRush14.jpeg" alt="14"></div>
     </div>
-    <p style="font-size:12px; color:var(--dim2); margin-top:8px;">Clic para ampliar · Navega con ← →</p>
+    <p style="font-size:12px; color:rgba(205,186,161,.22); margin-top:8px;">Clic para ampliar · Navega con ← →</p>
   </div>
 </section>
 
-<!-- VIDEOS -->
+<!-- ─── VIDEOS — centrados, sin salto, autoplay ─── -->
 <section class="sec" style="padding-top:0;">
   <div class="wrap">
-    <div class="sec-label" style="margin-bottom:14px;">En acción</div>
+    <div class="sec-label" style="margin-bottom:16px;">En acción</div>
     <div class="vid-grid">
       <div class="vid-wrap">
-        <video controls poster="assets/slide-rush/SlideRushPortada.jpeg" preload="none">
-          <source src="assets/slide-rush/SlideRush10.mp4" type="video/mp4">
-        </video>
+        <div class="vid-aspect">
+          <video data-autoplay muted loop playsinline preload="metadata">
+            <source src="assets/slide-rush/SlideRush10.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="vid-label">Gameplay — cuadrícula en movimiento</div>
       </div>
       <div class="vid-wrap">
-        <video controls poster="assets/slide-rush/SlideRush01.jpeg" preload="none">
-          <source src="assets/slide-rush/SlideVideo1.mp4" type="video/mp4">
-        </video>
-        <div class="vid-label">Video 2 — mecánicas</div>
+        <div class="vid-aspect">
+          <video data-autoplay muted loop playsinline preload="metadata">
+            <source src="assets/slide-rush/SlideVideo1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vid-label">Demo — mecánicas de juego</div>
       </div>
       <div class="vid-wrap">
-        <video controls poster="assets/slide-rush/SlideRush02.jpeg" preload="none">
-          <source src="assets/slide-rush/Slidevideo2.mp4" type="video/mp4">
-        </video>
-        <div class="vid-label">Video 3 — dificultad escalable</div>
+        <div class="vid-aspect">
+          <video data-autoplay muted loop playsinline preload="metadata">
+            <source src="assets/slide-rush/Slidevideo2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vid-label">Dificultad escalable</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="wrap">
     <div class="foot">
@@ -311,21 +205,39 @@
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
+<!-- ─── LIGHTBOX ─── -->
 <div class="lb" id="lb">
   <span class="lb-x" id="lbX">✕</span>
   <span class="lb-nav lb-prev" id="lbPrev">‹</span>
-  <img id="lbImg" src="" alt="">
+  <img class="lb-img" id="lbImg" src="" alt="">
   <span class="lb-nav lb-next" id="lbNext">›</span>
   <span class="lb-counter" id="lbCount"></span>
 </div>
 
 <script>
-  document.getElementById('burger')?.addEventListener('click', () => {
-    const m = document.getElementById('mob');
-    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-  });
+  /* ── Nav overlay ── */
+  const burger = document.getElementById('burger');
+  const overlay = document.getElementById('mobOverlay');
+  const closeBtn = document.getElementById('mobClose');
+  burger?.addEventListener('click', () => { overlay.classList.add('open'); burger.classList.add('open'); });
+  closeBtn?.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); });
+  overlay?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { overlay.classList.remove('open'); burger.classList.remove('open'); closeLb(); } });
 
+  /* ── Autoplay videos when visible ── */
+  const autoVideos = document.querySelectorAll('video[data-autoplay]');
+  if ('IntersectionObserver' in window && autoVideos.length) {
+    const vo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) { v.play().catch(() => {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.35 });
+    autoVideos.forEach(v => { v.muted = true; vo.observe(v); });
+  }
+
+  /* ── Lightbox ── */
   const shots = [...document.querySelectorAll('.shot')];
   const lb = document.getElementById('lb');
   const lbImg = document.getElementById('lbImg');
@@ -338,16 +250,10 @@
   function navLb(d) { cur = (cur+d+srcs.length)%srcs.length; lbImg.src = srcs[cur]; lbCount.textContent = (cur+1)+' / '+srcs.length; }
 
   shots.forEach((s,i) => s.addEventListener('click', () => openLb(i)));
-  document.getElementById('lbX').addEventListener('click', closeLb);
-  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
-  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); navLb(1); });
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') navLb(-1);
-    if (e.key === 'ArrowRight') navLb(1);
-  });
+  document.getElementById('lbX')?.addEventListener('click', closeLb);
+  document.getElementById('lbPrev')?.addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
+  document.getElementById('lbNext')?.addEventListener('click', e => { e.stopPropagation(); navLb(1); });
+  lb?.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 </script>
 </body>
 </html>
