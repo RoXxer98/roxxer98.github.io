@@ -24,7 +24,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body {
   min-height: 100vh;
   background:
@@ -247,7 +247,7 @@ nav {
   background: var(--mint-500);
   box-shadow: 0 0 0 6px rgba(64, 171, 164, .12);
 }
-.section { padding: 64px 0; position: relative; }
+.section { padding: 64px 0; position: relative; scroll-margin-top: 110px; }
 .section-head {
   display: flex;
   align-items: end;
@@ -262,6 +262,7 @@ nav {
   line-height: 1.02;
   font-weight: 880;
   letter-spacing: -.055em;
+  overflow-wrap: break-word;
 }
 .section-copy {
   max-width: 520px;
@@ -391,7 +392,12 @@ footer { padding: 50px 0 36px; border-top: 1px solid var(--line); background: rg
   .brand-logo { width: 38px; height: 38px; border-radius: 13px; }
   .brand-name { font-size: 14px; }
   .page-shell { padding-top: 78px; }
-  .section-title { font-size: 28px; }
+  .section-title {
+    max-width: calc(100vw - 56px);
+    font-size: 24px;
+    line-height: 1.08;
+    letter-spacing: -.035em;
+  }
   .btn { width: 100%; }
   .pill { font-size: 11px; }
   .lb-nav { display: none; }

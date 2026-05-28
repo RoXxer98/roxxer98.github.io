@@ -36,6 +36,8 @@
   line-height: 1.65;
 }
 .rush-preview {
+  width: min(100%, 260px);
+  justify-self: center;
   overflow: hidden;
   border-radius: 34px;
   border: 1px solid var(--line-strong);
@@ -124,7 +126,7 @@
 @media (max-width: 920px) {
   .rush-hero-grid,
   .story-grid { grid-template-columns: 1fr; }
-  .rush-preview { width: min(82%, 320px); justify-self: center; }
+  .rush-preview { width: min(72%, 230px); justify-self: center; }
   .video-grid { grid-template-columns: 1fr; max-width: 390px; margin: 0 auto; }
 }
 
