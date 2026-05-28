@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kael — RoXxer Studio</title>
-  <meta name="description" content="Kael — Reproductor de música 100% offline para Android. Sin streaming, sin suscripciones." />
-  <meta name="theme-color" content="#131318" />
+  <title>Kael | RoXxer Studio</title>
+  <meta name="description" content="Kael es un reproductor de música offline para Android con visualizadores, personalización profunda y privacidad por diseño." />
+  <meta name="theme-color" content="#024744" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,347 +13,220 @@
   <link rel="stylesheet" href="css/kael.css">
 </head>
 <body>
-
-<!-- ─── NAVBAR ─── -->
 <header>
   <div class="wrap">
-    <nav>
-      <a href="index.html" class="brand">
-        <div class="brand-logo">RX</div>
-        <div class="brand-text">
-          <span class="brand-name">RoXxer</span>
-          <span class="brand-sub">Studio</span>
-        </div>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="brand" aria-label="RoXxer Studio">
+        <span class="brand-logo">Rx</span>
+        <span class="brand-text"><span class="brand-name">RoXxer</span><span class="brand-sub">Studio</span></span>
       </a>
-      <span class="nav-sep"></span>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="kael.html" class="cur">Kael</a>
         <a href="slide-rush.html">Slide Rush</a>
         <a href="privacy.html">Privacidad</a>
       </div>
-      <button class="burger" id="burger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary nav-cta">Contacto</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
+
 <div class="mob-overlay" id="mobOverlay">
-  <button class="mob-close" id="mobClose">✕</button>
-  <a href="index.html">Home</a>
-  <a href="kael.html" class="cur">Kael</a>
-  <a href="slide-rush.html">Slide Rush</a>
-  <a href="privacy.html">Privacidad</a>
+  <div class="mob-panel">
+    <button class="mob-close" id="mobClose" aria-label="Cerrar menú">×</button>
+    <a href="index.html">Home</a>
+    <a href="kael.html" class="cur">Kael</a>
+    <a href="slide-rush.html">Slide Rush</a>
+    <a href="privacy.html">Privacidad</a>
+  </div>
 </div>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="assets/kael/Kael1.jpg" alt="">
-  </div>
-  <div class="hero-content">
-    <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">← Apps</a>
-        <span>/</span><span>Kael</span>
-      </div>
-      <div class="hero-top">
-        <div class="app-icon-lg">
-          <img src="assets/kael/ICON KAEL (1).jpg" alt="Kael icon">
+<main>
+  <section class="project-hero">
+    <div class="project-bg"><img src="assets/kael/Kael1.jpg" alt=""></div>
+    <div class="wrap project-hero-grid">
+      <div class="project-copy reveal">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Kael</span></div>
+        <div class="app-heading">
+          <span class="app-icon-xl"><img src="assets/kael/ICON KAEL (1).jpg" alt="Icono de Kael"></span>
+          <span class="pill status-pill">Desarrollo activo</span>
         </div>
-        <div class="hero-status">
-          <div class="status-chip s-act">● En desarrollo activo</div>
-          <span class="hero-sub-label">Android · Kotlin 2.3 · Offline-first</span>
+        <h1>Kael</h1>
+        <p>Reproductor de música 100% offline para Android. Sin streaming, sin suscripciones, con visualizadores en tiempo real y personalización completa.</p>
+        <div class="hero-actions">
+          <a href="#screens" class="btn btn-primary">Ver previews</a>
+          <a href="privacy.html" class="btn btn-secondary">Privacidad</a>
+          <a href="terms.html" class="btn btn-secondary">Términos</a>
         </div>
       </div>
-      <h1>Kael</h1>
-      <p class="hero-tagline">Reproductor de música 100% offline para Android.<br>Sin streaming, sin suscripciones. Tu música, tu control.</p>
-      <div class="hero-badges">
-        <span class="badge">🇪🇸 Español</span>
-        <span class="badge">🇺🇸 English</span>
-        <span class="badge">🇧🇷 Português (BR)</span>
-        <span class="badge">Google Play — próximamente</span>
+      <div class="project-phone reveal">
+        <img src="assets/kael/Kael2 (1).jpg" alt="Pantalla de Kael">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── ABOUT ─── -->
-<section class="sec">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="sec-label">Sobre el proyecto</div>
-        <p class="rt">Kael nació de la frustración con los reproductores existentes: demasiado simples, sin personalización real, o dependientes de servicios en la nube. La idea fue construir algo diferente — un reproductor que trate tu música local como lo que es, <span class="hl">tuya</span>.</p>
-        <p class="rt">El proyecto demuestra que una app de categoría comercial puede construirse con arquitectura limpia, optimización seria y foco real en experiencia de usuario, sin depender de backends externos ni servicios de pago.</p>
-        <div class="lang-row">
-          <div class="lang-pill">🇪🇸 Español</div>
-          <div class="lang-pill">🇺🇸 English</div>
-          <div class="lang-pill">🇧🇷 Português (BR)</div>
-        </div>
+  <section class="section">
+    <div class="wrap overview-grid">
+      <div class="overview-copy reveal">
+        <div class="eyebrow">Sobre el producto</div>
+        <h2 class="section-title">Tu música local tratada como una experiencia premium.</h2>
+        <p>Kael nace de una idea simple: una biblioteca local también merece una interfaz moderna, personal, rápida y hermosa. El producto está diseñado para dar control real sobre la apariencia, la reproducción y la privacidad.</p>
       </div>
-      <div class="meta-list">
-        <div><div class="meta-key">Estado</div><div class="meta-val">Desarrollo activo — pulido final</div></div>
-        <div><div class="meta-key">Plataforma</div><div class="meta-val">Android</div></div>
-        <div><div class="meta-key">Publicación</div><div class="meta-val">Google Play (próximamente)</div></div>
-        <div><div class="meta-key">Stack</div><div class="meta-val">Kotlin 2.3 · Jetpack Compose · Media3</div></div>
-        <div><div class="meta-key">Arquitectura</div><div class="meta-val">MVVM · Room · Flow · DataStore</div></div>
-        <div><div class="meta-key">Privacidad</div><div class="meta-val"><a href="privacy.html">Ver política →</a></div></div>
+      <div class="meta-panel reveal">
+        <div><span>Plataforma</span><strong>Android</strong></div>
+        <div><span>Stack</span><strong>Kotlin 2.3 · Compose · Media3</strong></div>
+        <div><span>Arquitectura</span><strong>MVVM · Room · Flow · DataStore</strong></div>
+        <div><span>Publicación</span><strong>Google Play próximamente</strong></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr class="div" style="margin-left:24px; margin-right:24px;">
-
-<!-- ─── VIDEO (solo Timeline, autoplay, sin salto) ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label">En acción</div>
-    <div class="sec-title">Kael en movimiento</div>
-    <div class="video-container">
-      <div class="video-wrap">
-        <video
-          id="kaelVideo"
-          data-autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        >
+  <section class="section media-section">
+    <div class="wrap media-grid">
+      <div class="video-card reveal">
+        <video id="kaelVideo" data-autoplay muted loop playsinline preload="metadata">
           <source src="assets/kael/Timeline 1.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="video-label">Kael — animaciones, visualizador y personalización</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SCREENSHOTS ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label" style="margin-bottom:14px;">Capturas de pantalla</div>
-    <div class="strip" id="strip">
-      <div class="shot" data-idx="0"><img src="assets/kael/Kael2 (1).jpg" alt="1"></div>
-      <div class="shot" data-idx="1"><img src="assets/kael/Kael2 (2).jpg" alt="2"></div>
-      <div class="shot" data-idx="2"><img src="assets/kael/Kael2 (3).jpg" alt="3"></div>
-      <div class="shot" data-idx="3"><img src="assets/kael/Kael2 (4).jpg" alt="4"></div>
-      <div class="shot" data-idx="4"><img src="assets/kael/Kael2 (5).jpg" alt="5"></div>
-      <div class="shot" data-idx="5"><img src="assets/kael/Kael2 (6).jpg" alt="6"></div>
-      <div class="shot" data-idx="6"><img src="assets/kael/Kael2 (7).jpg" alt="7"></div>
-      <div class="shot" data-idx="7"><img src="assets/kael/Kael2 (8).jpg" alt="8"></div>
-      <div class="shot" data-idx="8"><img src="assets/kael/Kael2 (9).jpg" alt="9"></div>
-      <div class="shot" data-idx="9"><img src="assets/kael/Kael2 (10).jpg" alt="10"></div>
-      <div class="shot" data-idx="10"><img src="assets/kael/Kael2 (11).jpg" alt="11"></div>
-      <div class="shot" data-idx="11"><img src="assets/kael/Kael2 (12).jpg" alt="12"></div>
-      <div class="shot" data-idx="12"><img src="assets/kael/Kael2 (13).jpg" alt="13"></div>
-      <div class="shot" data-idx="13"><img src="assets/kael/Kael2 (14).jpg" alt="14"></div>
-      <div class="shot" data-idx="14"><img src="assets/kael/Kael2 (15).jpg" alt="15"></div>
-      <div class="shot" data-idx="15"><img src="assets/kael/Kael2 (16).jpg" alt="16"></div>
-      <div class="shot" data-idx="16"><img src="assets/kael/Kael2 (17).jpg" alt="17"></div>
-      <div class="shot" data-idx="17"><img src="assets/kael/Kael2 (18).jpg" alt="18"></div>
-      <div class="shot" data-idx="18"><img src="assets/kael/Kael2 (19).jpg" alt="19"></div>
-      <div class="shot" data-idx="19"><img src="assets/kael/Kael2 (20).jpg" alt="20"></div>
-      <div class="shot" data-idx="20"><img src="assets/kael/Kael2 (21).jpg" alt="21"></div>
-      <div class="shot" data-idx="21"><img src="assets/kael/Kael2 (22).jpg" alt="22"></div>
-      <div class="shot" data-idx="22"><img src="assets/kael/Kael2 (23).jpg" alt="23"></div>
-      <div class="shot" data-idx="23"><img src="assets/kael/Kael2 (24).jpg" alt="24"></div>
-      <div class="shot" data-idx="24"><img src="assets/kael/Kael2 (25).jpg" alt="25"></div>
-      <div class="shot" data-idx="25"><img src="assets/kael/Kael2 (26).jpg" alt="26"></div>
-      <div class="shot" data-idx="26"><img src="assets/kael/Kael2 (27).jpg" alt="27"></div>
-    </div>
-    <p style="font-size:12px; color:rgba(205,186,161,.22); margin-top:8px;">Clic para ampliar · Navega con ← →</p>
-  </div>
-</section>
-
-<!-- ─── FEATURES ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label">Características</div>
-    <div class="sec-title">Lo que hace a Kael diferente.</div>
-    <div class="feat-grid">
-      <div class="feat"><div class="feat-icon">🎨</div><div class="feat-name">Personalización total</div><p class="feat-desc">Carátulas, nombres, alias, imagen de perfil y fondos. Tu app, tu identidad.</p></div>
-      <div class="feat"><div class="feat-icon">📴</div><div class="feat-name">100% Offline</div><p class="feat-desc">Sin streaming ni suscripciones. Solo archivos locales en tu dispositivo.</p></div>
-      <div class="feat"><div class="feat-icon">🌊</div><div class="feat-name">Visualizadores en tiempo real</div><p class="feat-desc">Lineal y aurora circular con BeatDetector propio, animados a 60fps.</p></div>
-      <div class="feat"><div class="feat-icon">🔀</div><div class="feat-name">Crossfade configurable</div><p class="feat-desc">Transiciones suaves con engine de polling adaptativo entre canciones.</p></div>
-      <div class="feat"><div class="feat-icon">🎚️</div><div class="feat-name">Ecualizador + perfiles</div><p class="feat-desc">Ecualizador integrado con perfiles guardados por usuario.</p></div>
-      <div class="feat"><div class="feat-icon">↕️</div><div class="feat-name">Cola con drag & drop</div><p class="feat-desc">Reordena tu cola con gestos nativos sin interrumpir la música.</p></div>
-      <div class="feat"><div class="feat-icon">🖼️</div><div class="feat-name">Color dinámico</div><p class="feat-desc">La interfaz adapta su paleta al artwork de la canción actual.</p></div>
-      <div class="feat"><div class="feat-icon">📊</div><div class="feat-name">Analytics de escucha</div><p class="feat-desc">Estadísticas, artistas más escuchados y tiempo total de escucha.</p></div>
-      <div class="feat"><div class="feat-icon">🌐</div><div class="feat-name">Multiidioma</div><p class="feat-desc">Español, Inglés y Portugués (Brasil) desde el primer día.</p></div>
-    </div>
-  </div>
-</section>
-
-<hr class="div" style="margin-left:24px; margin-right:24px;">
-
-<!-- ─── DIFERENCIAL & RETO ─── -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label">Diferencial & Retos</div>
-    <div class="challenge">
-      <h4>Personalización como filosofía</h4>
-      <p>La mayoría de reproductores te dan control sobre la reproducción. Kael te da control sobre todo: la apariencia de cada canción, los nombres que ves, la imagen de perfil, el fondo de la app y el tema visual.</p>
-      <p style="color:var(--text);">Carátulas editables por canción, playlist o carpeta · Nombres y alias personalizados · Color dinámico · Temas claro, oscuro y AMOLED puro.</p>
-    </div>
-    <div class="challenge">
-      <h4>Reto principal: 60fps bajo carga total</h4>
-      <p>Mantener 60fps mientras visualizadores en tiempo real, UI animada en Compose, crossfade entre pistas y color dinámico corren simultáneamente. Sin optimización, cualquiera de estos sistemas degrada el rendimiento.</p>
-      <p><span style="color:var(--text); font-weight:600;">Resultado:</span> rendimiento estable bajo carga total, sin memory leaks conocidos, comparable a reproductores comerciales.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── OPTIMIZACIONES ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label">Optimizaciones clave</div>
-    <div class="sec-title">Problemas reales, soluciones reales.</div>
-    <div class="opt-grid">
-      <div class="opt"><div class="opt-key">Queries N+1</div><p class="opt-val">Query único con GROUP BY → Map en el ViewModel. Elimina roundtrips a la DB.</p></div>
-      <div class="opt"><div class="opt-key">Visualizadores idle</div><p class="opt-val">Animaciones condicionales con Animatable. Sin audio activo, se pausan y liberan CPU.</p></div>
-      <div class="opt"><div class="opt-key">Sincronización de frames</div><p class="opt-val">delay(16ms) fijo reemplazado por withFrameMillis. Sincroniza al refresh rate real del dispositivo.</p></div>
-      <div class="opt"><div class="opt-key">Crossfade engine</div><p class="opt-val">Polling adaptativo: 2s → 500ms → 40ms al acercarse al final de la pista.</p></div>
-      <div class="opt"><div class="opt-key">Cola de reproducción</div><p class="opt-val">Surface container → Row optimizado. Reduce capas de composición y overdraw.</p></div>
-      <div class="opt"><div class="opt-key">NowPlaying UI</div><p class="opt-val">Refactor en sub-componentes atómicos para reducir recomposición innecesaria en Compose.</p></div>
-    </div>
-  </div>
-</section>
-
-<hr class="div" style="margin-left:24px; margin-right:24px;">
-
-<!-- ─── STACK ─── -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label">Stack técnico</div>
-    <div class="sec-title">Cada decisión tiene un por qué.</div>
-    <div class="stack-grid">
-      <div class="stack-item"><div class="stack-tech">Kotlin 2.3 + Jetpack Compose + Material 3</div><p class="stack-desc">UI 100% declarativa, sin XML. Gestión eficiente de recomposición con keys y remember estables.</p></div>
-      <div class="stack-item"><div class="stack-tech">Media3 / ExoPlayer + MediaLibraryService</div><p class="stack-desc">Reproducción robusta con soporte Android Auto. Servicio en foreground con notificación de control.</p></div>
-      <div class="stack-item"><div class="stack-tech">Room + KSP + Flow</div><p class="stack-desc">DB reactiva. Todos los queries exponen Flow&lt;T&gt;, transformados en el ViewModel antes del UI.</p></div>
-      <div class="stack-item"><div class="stack-tech">DataStore + Coil + Glance</div><p class="stack-desc">Preferencias sin bloqueos, caché de imágenes eficiente y widgets nativos modernos.</p></div>
-      <div class="stack-item"><div class="stack-tech">Arquitectura MVVM</div><p class="stack-desc">MusicViewModel como fuente central de estado. UI completamente reactiva, repositorio único.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── STATUS ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label" style="margin-bottom:14px;">Estado del proyecto</div>
-    <div class="status-box">
-      <div class="checks">
-        <div class="chk"><span class="ok">✓</span> Arquitectura limpia</div>
-        <div class="chk"><span class="ok">✓</span> Sin memory leaks conocidos</div>
-        <div class="chk"><span class="ok">✓</span> UI fluida a 60fps</div>
-        <div class="chk"><span class="rd">→</span> Rumbo a Play Store</div>
+      <div class="media-copy reveal">
+        <div class="eyebrow">En movimiento</div>
+        <h2>Animaciones, visualizadores y una interfaz viva.</h2>
+        <p>La experiencia se apoya en transiciones suaves, visualizadores a 60fps y color dinámico para que la app se sienta conectada con cada canción.</p>
       </div>
-      <div class="roadmap">
-        <h5>Próximamente</h5>
-        <ul>
-          <li>Baseline Profiles (cold start)</li>
-          <li>Scrobbling: Last.fm / ListenBrainz</li>
-          <li>Sleep timer configurable</li>
-          <li>Publicación en Google Play</li>
-        </ul>
-      </div>
-      <div class="status-note">Kael se encuentra en estado sólido de producción local: arquitectura limpia, queries optimizadas y UI fluida bajo carga. Actualmente en fase de pulido final, con publicación en Google Play planificada.</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr class="div" style="margin-left:24px; margin-right:24px;">
-
-<!-- ─── PRIVACIDAD (visible, propia de Kael) ─── -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label">Privacidad</div>
-    <div class="privacy-banner">
-      <div class="privacy-banner-icon">🔒</div>
-      <div class="privacy-banner-body">
-        <h3>Kael no recopila ningún dato tuyo</h3>
-        <p>Todo permanece en tu dispositivo. Sin servidores externos, sin publicidad, sin tracking de ningún tipo.</p>
-        <ul class="privacy-bullets">
-          <li>Sin recopilación de datos personales</li>
-          <li>Sin SDK de publicidad ni analíticas externas</li>
-          <li>100% offline — nada sale de tu dispositivo</li>
-        </ul>
+  <section class="section" id="screens">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Capturas</div>
+          <h2 class="section-title">Pantallas reales del producto.</h2>
+        </div>
+        <p class="section-copy">Toca cualquier captura para ampliarla y revisar la experiencia visual de Kael.</p>
       </div>
-      <a href="privacy.html" class="btn btn-out" style="flex-shrink:0; align-self:center;">
-        Ver política de privacidad →
-      </a>
+      <div class="shot-strip">
+        <div class="shot" data-idx="0"><img src="assets/kael/Kael2 (1).jpg" alt="Kael pantalla 1"></div>
+        <div class="shot" data-idx="1"><img src="assets/kael/Kael2 (2).jpg" alt="Kael pantalla 2"></div>
+        <div class="shot" data-idx="2"><img src="assets/kael/Kael2 (3).jpg" alt="Kael pantalla 3"></div>
+        <div class="shot" data-idx="3"><img src="assets/kael/Kael2 (4).jpg" alt="Kael pantalla 4"></div>
+        <div class="shot" data-idx="4"><img src="assets/kael/Kael2 (5).jpg" alt="Kael pantalla 5"></div>
+        <div class="shot" data-idx="5"><img src="assets/kael/Kael2 (6).jpg" alt="Kael pantalla 6"></div>
+        <div class="shot" data-idx="6"><img src="assets/kael/Kael2 (7).jpg" alt="Kael pantalla 7"></div>
+        <div class="shot" data-idx="7"><img src="assets/kael/Kael2 (8).jpg" alt="Kael pantalla 8"></div>
+        <div class="shot" data-idx="8"><img src="assets/kael/Kael2 (9).jpg" alt="Kael pantalla 9"></div>
+        <div class="shot" data-idx="9"><img src="assets/kael/Kael2 (10).jpg" alt="Kael pantalla 10"></div>
+        <div class="shot" data-idx="10"><img src="assets/kael/Kael2 (11).jpg" alt="Kael pantalla 11"></div>
+        <div class="shot" data-idx="11"><img src="assets/kael/Kael2 (12).jpg" alt="Kael pantalla 12"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── FOOTER ─── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Diferenciales</div>
+          <h2 class="section-title">Control total, privacidad total.</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal"><span>01</span><h3>Personalización profunda</h3><p>Carátulas, alias, perfil, fondos, temas y colores dinámicos adaptados a la música.</p></div>
+        <div class="feature-card reveal"><span>02</span><h3>100% offline</h3><p>La app trabaja con archivos locales. Nada sale del dispositivo y no existe tracking externo.</p></div>
+        <div class="feature-card reveal"><span>03</span><h3>Visualizadores fluidos</h3><p>Visualizadores lineales y circulares con animación optimizada para mantener una experiencia suave.</p></div>
+        <div class="feature-card reveal"><span>04</span><h3>Arquitectura limpia</h3><p>MVVM, Room, Flow y DataStore para un estado robusto y mantenible.</p></div>
+        <div class="feature-card reveal"><span>05</span><h3>Reproducción avanzada</h3><p>Crossfade configurable, cola con drag and drop, ecualizador y perfiles guardados.</p></div>
+        <div class="feature-card reveal"><span>06</span><h3>Multiidioma</h3><p>Español, English y Português (BR) preparados desde el ciclo actual del producto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap status-card reveal">
+      <div>
+        <div class="eyebrow">Estado</div>
+        <h2>En fase de pulido final para Google Play.</h2>
+        <p>Kael se encuentra en estado sólido de producción local, con foco actual en acabado visual, optimización de arranque y publicación.</p>
+      </div>
+      <div class="pill-row">
+        <span class="pill">UI 60fps</span>
+        <span class="pill">Sin SDKs de ads</span>
+        <span class="pill">Room optimizado</span>
+        <span class="pill">Play Store próximamente</span>
+        <a href="terms.html" class="pill">Términos de Kael</a>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div class="foot-brand">
-        <div class="foot-logo">RX</div>
-        <span class="foot-name">RoXxer Studio</span>
+      <div>
+        <div class="foot-brand"><span class="foot-logo">Rx</span><span class="foot-name">RoXxer Studio</span></div>
+        <div class="foot-copy">© 2026 RoXxer Studio. Kael, música offline con privacidad.</div>
       </div>
       <div class="foot-links">
-        <a href="index.html">← Volver a Apps</a>
+        <a href="index.html">Home</a>
         <a href="slide-rush.html">Slide Rush</a>
-        <a href="privacy.html">Privacidad Kael</a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="terms.html">Términos</a>
         <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
       </div>
-      <span class="foot-copy">© 2025 RoXxer</span>
     </div>
   </div>
 </footer>
 
-<!-- ─── LIGHTBOX ─── -->
 <div class="lb" id="lb">
-  <span class="lb-x" id="lbX">✕</span>
-  <span class="lb-nav lb-prev" id="lbPrev">‹</span>
+  <button class="lb-x" id="lbX" aria-label="Cerrar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
   <img class="lb-img" id="lbImg" src="" alt="">
-  <span class="lb-nav lb-next" id="lbNext">›</span>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">›</button>
   <span class="lb-counter" id="lbCount"></span>
 </div>
 
 <script>
-  /* ── Nav overlay ── */
-  const burger = document.getElementById('burger');
-  const overlay = document.getElementById('mobOverlay');
-  const closeBtn = document.getElementById('mobClose');
-  burger?.addEventListener('click', () => { overlay.classList.add('open'); burger.classList.add('open'); });
-  closeBtn?.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); });
-  overlay?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); }));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { overlay.classList.remove('open'); burger.classList.remove('open'); closeLb(); } });
+  const burger = document.getElementById("burger");
+  const overlay = document.getElementById("mobOverlay");
+  const closeBtn = document.getElementById("mobClose");
+  const closeMenu = () => { overlay?.classList.remove("open"); burger?.classList.remove("open"); };
+  burger?.addEventListener("click", () => { overlay?.classList.add("open"); burger.classList.add("open"); });
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
-  /* ── Autoplay video when in viewport ── */
-  const autoVideos = document.querySelectorAll('video[data-autoplay]');
-  if ('IntersectionObserver' in window && autoVideos.length) {
-    const vo = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const v = entry.target;
-        if (entry.isIntersecting) { v.play().catch(() => {}); }
-        else { v.pause(); }
-      });
-    }, { threshold: 0.45 });
-    autoVideos.forEach(v => { v.muted = true; vo.observe(v); });
-  }
+  const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add("in");
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
 
-  /* ── Lightbox ── */
-  const shots = [...document.querySelectorAll('.shot')];
-  const lb = document.getElementById('lb');
-  const lbImg = document.getElementById('lbImg');
-  const lbCount = document.getElementById('lbCount');
-  let cur = 0;
-  const srcs = shots.map(s => s.querySelector('img')?.src || '');
+  document.querySelectorAll("video[data-autoplay]").forEach((video) => {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    }), { threshold: .35 });
+    observer.observe(video);
+  });
 
-  function openLb(i) { cur = i; lbImg.src = srcs[cur]; lbCount.textContent = (cur+1)+' / '+srcs.length; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  function navLb(d) { cur = (cur+d+srcs.length)%srcs.length; lbImg.src = srcs[cur]; lbCount.textContent = (cur+1)+' / '+srcs.length; }
-
-  shots.forEach((s,i) => s.addEventListener('click', () => openLb(i)));
-  document.getElementById('lbX')?.addEventListener('click', closeLb);
-  document.getElementById('lbPrev')?.addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
-  document.getElementById('lbNext')?.addEventListener('click', e => { e.stopPropagation(); navLb(1); });
-  lb?.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  const shots = [...document.querySelectorAll(".shot")];
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbCount = document.getElementById("lbCount");
+  let current = 0;
+  const srcs = shots.map((shot) => shot.querySelector("img")?.src || "");
+  const openLb = (index) => { current = index; lbImg.src = srcs[current]; lbCount.textContent = `${current + 1} / ${srcs.length}`; lb.classList.add("open"); document.body.style.overflow = "hidden"; };
+  const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
+  const navLb = (delta) => { current = (current + delta + srcs.length) % srcs.length; lbImg.src = srcs[current]; lbCount.textContent = `${current + 1} / ${srcs.length}`; };
+  shots.forEach((shot, index) => shot.addEventListener("click", () => openLb(index)));
+  document.getElementById("lbX")?.addEventListener("click", closeLb);
+  document.getElementById("lbPrev")?.addEventListener("click", () => navLb(-1));
+  document.getElementById("lbNext")?.addEventListener("click", () => navLb(1));
+  lb?.addEventListener("click", (event) => { if (event.target === lb) closeLb(); });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") { closeMenu(); closeLb(); }
+    if (lb?.classList.contains("open") && event.key === "ArrowLeft") navLb(-1);
+    if (lb?.classList.contains("open") && event.key === "ArrowRight") navLb(1);
+  });
 </script>
 </body>
 </html>

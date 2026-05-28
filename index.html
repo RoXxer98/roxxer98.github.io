@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RoXxer Studio</title>
-  <meta name="description" content="RoXxer Studio — Apps Android con arquitectura limpia y foco en experiencia real de usuario." />
-  <meta name="theme-color" content="#131318" />
+  <title>RoXxer Studio | Apps móviles y software moderno</title>
+  <meta name="description" content="RoXxer Studio desarrolla aplicaciones móviles y software moderno con diseño premium, arquitectura limpia y experiencias fluidas." />
+  <meta name="theme-color" content="#024744" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,164 +13,262 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-
-<!-- ─── NAVBAR ─── -->
 <header>
   <div class="wrap">
-    <nav>
-      <a href="index.html" class="brand">
-        <div class="brand-logo">RX</div>
-        <div class="brand-text">
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="brand" aria-label="RoXxer Studio">
+        <span class="brand-logo">Rx</span>
+        <span class="brand-text">
           <span class="brand-name">RoXxer</span>
           <span class="brand-sub">Studio</span>
-        </div>
+        </span>
       </a>
-      <span class="nav-sep"></span>
       <div class="nav-links">
         <a href="index.html" class="cur">Home</a>
-        <a href="kael.html">Kael</a>
-        <a href="slide-rush.html">Slide Rush</a>
+        <a href="#studio">Studio</a>
+        <a href="#apps">Apps</a>
+        <a href="#stack">Tecnología</a>
         <a href="privacy.html">Privacidad</a>
       </div>
-      <button class="burger" id="burger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary nav-cta">Contacto</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
 
-<!-- Mobile overlay -->
 <div class="mob-overlay" id="mobOverlay">
-  <button class="mob-close" id="mobClose" aria-label="Cerrar menú">✕</button>
-  <a href="index.html" class="cur">Home</a>
-  <a href="kael.html">Kael</a>
-  <a href="slide-rush.html">Slide Rush</a>
-  <a href="privacy.html">Privacidad</a>
+  <div class="mob-panel">
+    <button class="mob-close" id="mobClose" aria-label="Cerrar menú">×</button>
+    <a href="index.html" class="cur">Home</a>
+    <a href="#studio">Studio</a>
+    <a href="#apps">Apps</a>
+    <a href="#stack">Tecnología</a>
+    <a href="privacy.html">Privacidad</a>
+  </div>
 </div>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-chip"><span class="dot"></span>Developer Portfolio</div>
-    <h1>Apps con propósito.<br><em>Arquitectura limpia.</em></h1>
-    <p>Construyo software moderno, rápido y bien diseñado.
-    Desde aplicaciones offline hasta plataformas conectadas, mi enfoque es simple: crear productos eficientes, claros y pensados para el usuario.</p>
-    <div class="hero-cta">
-      <a href="kael.html" class="btn btn-red">Ver Kael →</a>
-      <a href="#apps" class="btn btn-out">Explorar apps</a>
-      <a href="https://roxxerstudio.vercel.app/" target="_blank" rel="noopener" class="btn btn-out">Portfolio →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── APPS ─── -->
-<section class="sec" id="apps">
-  <div class="wrap">
-    <div class="sec-label">Portfolio</div>
-    <div class="sec-title">Proyectos</div>
-
-    <div class="cards">
-
-      <!-- Kael -->
-      <a href="kael.html" class="card" aria-label="Ver proyecto Kael">
-        <div class="card-cover">
-          <img src="assets/kael/Kael1.jpg" alt="Kael">
-          <div class="card-icon">
-            <img src="assets/kael/ICON KAEL (1).jpg" alt="Kael icon">
-          </div>
+<main>
+  <section class="hero">
+    <div class="hero-ambient" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Mobile apps and modern software</div>
+        <h1>Software premium.</h1>
+        <p>RoXxer Studio diseña y desarrolla aplicaciones móviles con arquitectura limpia, interfaces elegantes y rendimiento pensado para usuarios reales.</p>
+        <div class="hero-actions">
+          <a href="#apps" class="btn btn-primary">Ver aplicaciones</a>
+          <a href="#studio" class="btn btn-secondary">Conocer el estudio</a>
         </div>
-        <div class="card-body">
-          <div class="card-status s-act">● Desarrollo activo</div>
-          <div class="card-name">Kael</div>
-          <p class="card-desc">Reproductor de música 100% offline para Android. Sin streaming, sin suscripciones. Visualizadores en tiempo real, personalización total y arquitectura MVVM limpia.</p>
-          <div class="tags">
-            <span class="tag">Kotlin 2.3</span>
-            <span class="tag">Jetpack Compose</span>
-            <span class="tag">Media3</span>
-            <span class="tag">Offline-first</span>
-            <span class="tag">Android</span>
-          </div>
-          <span class="btn btn-red" style="align-self:flex-start; pointer-events:none;">Ver proyecto →</span>
-        </div>
-      </a>
-
-      <!-- Slide Rush -->
-      <a href="slide-rush.html" class="card" aria-label="Ver proyecto Slide Rush">
-        <div class="card-cover">
-          <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush">
-        </div>
-        <div class="card-body">
-          <div class="card-status s-arc">◈ Archivado</div>
-          <div class="card-name">Slide Rush</div>
-          <p class="card-desc">Juego de lógica basado en el puzzle deslizante clásico. Cuadrícula variable de 3×3 a 10×10. Proyecto personal archivado.</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">Mobile</span>
-            <span class="tag">Puzzle</span>
-          </div>
-          <span class="btn btn-out" style="align-self:flex-start; pointer-events:none;">Ver detalles →</span>
-        </div>
-      </a>
-
-      <!-- Próximamente -->
-      <div class="card card-soon">
-        <div class="soon-body">
-          <div class="soon-icon">✦</div>
-          <div class="soon-title">Próximo proyecto</div>
-          <p class="soon-sub">En prototipado. Más info pronto.</p>
+        <div class="hero-proof">
+          <span>Android</span>
+          <span>Kotlin</span>
+          <span>Jetpack Compose</span>
+          <span>Unity</span>
         </div>
       </div>
 
+      <div class="hero-visual reveal" aria-label="Previews de aplicaciones RoXxer Studio">
+        <div class="device device-main">
+          <img src="assets/kael/Kael2 (1).jpg" alt="Preview de Kael">
+        </div>
+        <div class="device device-side">
+          <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Preview de Slide Rush">
+        </div>
+        <div class="rx-mark">Rx</div>
+        <div class="signal-card">
+          <span class="signal-dot"></span>
+          <div>
+            <strong>Studio-grade UI</strong>
+            <small>Diseño, performance y producto en un mismo flujo.</small>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── FOOTER ─── -->
+  <section class="section studio-section" id="studio">
+    <div class="wrap studio-grid">
+      <div class="reveal">
+        <div class="eyebrow">RoXxer Studio</div>
+        <h2 class="section-title">Tecnología moderna con criterio de producto.</h2>
+      </div>
+      <div class="studio-copy reveal">
+        <p>Construimos software ligero, claro y confiable. Cada decisión visual y técnica se piensa para que la experiencia final se sienta rápida, útil y profesional desde el primer toque.</p>
+        <p>El enfoque combina desarrollo nativo, diseño de interfaces, arquitectura mantenible y optimización real. Menos ruido, más intención.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stats-band" aria-label="Indicadores de RoXxer Studio">
+    <div class="wrap stats-grid">
+      <div class="stat reveal"><strong>100%</strong><span>Experiencias mobile-first</span></div>
+      <div class="stat reveal"><strong>60fps</strong><span>Interacciones fluidas como objetivo</span></div>
+      <div class="stat reveal"><strong>0</strong><span>Dependencias innecesarias en productos offline</span></div>
+      <div class="stat reveal"><strong>3+</strong><span>Idiomas preparados en apps actuales</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="apps">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Apps destacadas</div>
+          <h2 class="section-title">Productos presentados con la importancia que merecen.</h2>
+        </div>
+        <p class="section-copy">Cada app tiene una página individual, previews reales, stack técnico y una narrativa clara de producto.</p>
+      </div>
+
+      <div class="app-grid">
+        <a href="kael.html" class="app-card app-card-featured reveal" aria-label="Ver proyecto Kael">
+          <div class="app-media">
+            <img src="assets/kael/Kael1.jpg" alt="Kael">
+            <span class="app-icon"><img src="assets/kael/ICON KAEL (1).jpg" alt=""></span>
+          </div>
+          <div class="app-body">
+            <div class="app-meta">
+              <span class="status-pill pill">Desarrollo activo</span>
+              <span>Android</span>
+            </div>
+            <h3>Kael</h3>
+            <p>Reproductor de música offline con visualizadores, personalización profunda, arquitectura MVVM y privacidad por diseño.</p>
+            <div class="pill-row">
+              <span class="pill">Kotlin 2.3</span>
+              <span class="pill">Compose</span>
+              <span class="pill">Media3</span>
+              <span class="pill">Offline-first</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="slide-rush.html" class="app-card reveal" aria-label="Ver proyecto Slide Rush">
+          <div class="app-media">
+            <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush">
+          </div>
+          <div class="app-body">
+            <div class="app-meta">
+              <span class="pill">Archivado</span>
+              <span>Unity</span>
+            </div>
+            <h3>Slide Rush</h3>
+            <p>Puzzle móvil de lógica con cuadrículas variables, movimiento por espacio vacío y aprendizaje de mecánicas escalables.</p>
+            <div class="pill-row">
+              <span class="pill">C#</span>
+              <span class="pill">Mobile UI</span>
+              <span class="pill">Puzzle</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="app-card next-card reveal">
+          <div class="next-symbol">Rx</div>
+          <h3>Próximo producto</h3>
+          <p>Un nuevo prototipo enfocado en utilidad, rendimiento y una experiencia mobile refinada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack-section" id="stack">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Tecnologías</div>
+          <h2 class="section-title">Stack moderno para productos sólidos.</h2>
+        </div>
+        <p class="section-copy">Herramientas elegidas por rendimiento, claridad de mantenimiento y capacidad de escalar interfaces complejas sin perder fluidez.</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card reveal"><span>01</span><h3>Kotlin + Compose</h3><p>Interfaces nativas declarativas, rápidas y consistentes para Android moderno.</p></div>
+        <div class="tech-card reveal"><span>02</span><h3>Media3 + Room</h3><p>Reproducción robusta, persistencia local y flujos reactivos para apps offline.</p></div>
+        <div class="tech-card reveal"><span>03</span><h3>MVVM + Flow</h3><p>Arquitectura limpia, estados predecibles y separación clara entre UI y dominio.</p></div>
+        <div class="tech-card reveal"><span>04</span><h3>Unity + C#</h3><p>Prototipos interactivos, juegos móviles y sistemas de lógica visual.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section benefits-section">
+    <div class="wrap benefits-grid">
+      <div class="benefit-panel reveal">
+        <div class="eyebrow">Beneficios</div>
+        <h2>Diseño que se ve premium. Código que se mantiene premium.</h2>
+        <p>La experiencia no termina en la interfaz. RoXxer Studio busca que cada app sea clara por fuera y ordenada por dentro.</p>
+      </div>
+      <div class="benefit-list">
+        <div class="benefit reveal"><strong>Identidad visual fuerte</strong><span>Interfaces con personalidad propia y lenguaje consistente.</span></div>
+        <div class="benefit reveal"><strong>Rendimiento cuidado</strong><span>Animaciones suaves, carga ligera y decisiones técnicas con intención.</span></div>
+        <div class="benefit reveal"><strong>Privacidad como valor</strong><span>Menos dependencia externa y más control para el usuario.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section quote-section">
+    <div class="wrap">
+      <figure class="quote-card reveal">
+        <blockquote>“Un producto premium no solo debe verse bien. Debe responder rápido, explicar poco y sentirse confiable en silencio.”</blockquote>
+        <figcaption>Principio de diseño de RoXxer Studio</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="wrap">
+      <div class="cta-card reveal">
+        <div>
+          <div class="eyebrow">Trabajemos</div>
+          <h2>Construyamos una app que se sienta seria desde el primer segundo.</h2>
+          <p>Diseño moderno, desarrollo mobile y criterio de producto para experiencias digitales premium.</p>
+        </div>
+        <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary">Contactar a RoXxer Studio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div class="foot-brand">
-        <div class="foot-logo">RX</div>
-        <span class="foot-name">RoXxer Studio</span>
+      <div>
+        <div class="foot-brand">
+          <span class="foot-logo">Rx</span>
+          <span class="foot-name">RoXxer Studio</span>
+        </div>
+        <div class="foot-copy">© 2026 RoXxer Studio. Apps móviles y software moderno.</div>
       </div>
       <div class="foot-links">
         <a href="kael.html">Kael</a>
         <a href="slide-rush.html">Slide Rush</a>
         <a href="privacy.html">Privacidad</a>
-        <a href="https://roxxerstudio.vercel.app/" target="_blank" rel="noopener">Portfolio</a>
+        <a href="terms.html">Términos</a>
         <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
       </div>
-      <span class="foot-copy">© 2025 RoXxer</span>
     </div>
   </div>
 </footer>
 
 <script>
-  const burger = document.getElementById('burger');
-  const overlay = document.getElementById('mobOverlay');
-  const closeBtn = document.getElementById('mobClose');
+  const burger = document.getElementById("burger");
+  const overlay = document.getElementById("mobOverlay");
+  const closeBtn = document.getElementById("mobClose");
+  const closeMenu = () => {
+    overlay?.classList.remove("open");
+    burger?.classList.remove("open");
+  };
+  burger?.addEventListener("click", () => {
+    overlay?.classList.add("open");
+    burger.classList.add("open");
+  });
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
 
-  burger?.addEventListener('click', () => {
-    overlay.classList.add('open');
-    burger.classList.add('open');
-  });
-  closeBtn?.addEventListener('click', () => {
-    overlay.classList.remove('open');
-    burger.classList.remove('open');
-  });
-  overlay?.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      overlay.classList.remove('open');
-      burger.classList.remove('open');
-    })
-  );
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      overlay.classList.remove('open');
-      burger.classList.remove('open');
-    }
-  });
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("in");
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
 </script>
 </body>
 </html>

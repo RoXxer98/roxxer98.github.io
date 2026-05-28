@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Política de Privacidad — Kael · RoXxer Studio</title>
-  <meta name="description" content="Política de privacidad de Kael — Reproductor de música offline para Android. Sin recopilación de datos." />
-  <meta name="theme-color" content="#131318" />
+  <title>Política de Privacidad | Kael · RoXxer Studio</title>
+  <meta name="description" content="Política de privacidad de Kael, reproductor de música offline para Android sin recopilación de datos personales." />
+  <meta name="theme-color" content="#024744" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,220 +13,162 @@
   <link rel="stylesheet" href="css/privacy.css">
 </head>
 <body>
-
-<!-- ─── NAVBAR ─── -->
 <header>
   <div class="wrap">
-    <nav>
-      <a href="index.html" class="brand">
-        <div class="brand-logo">RX</div>
-        <div class="brand-text">
-          <span class="brand-name">RoXxer</span>
-          <span class="brand-sub">Studio</span>
-        </div>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="brand" aria-label="RoXxer Studio">
+        <span class="brand-logo">Rx</span>
+        <span class="brand-text"><span class="brand-name">RoXxer</span><span class="brand-sub">Studio</span></span>
       </a>
-      <span class="nav-sep"></span>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="kael.html">Kael</a>
         <a href="slide-rush.html">Slide Rush</a>
         <a href="privacy.html" class="cur">Privacidad</a>
       </div>
-      <button class="burger" id="burger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary nav-cta">Contacto</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
+
 <div class="mob-overlay" id="mobOverlay">
-  <button class="mob-close" id="mobClose">✕</button>
-  <a href="index.html">Home</a>
-  <a href="kael.html">Kael</a>
-  <a href="slide-rush.html">Slide Rush</a>
-  <a href="privacy.html" class="cur">Privacidad</a>
+  <div class="mob-panel">
+    <button class="mob-close" id="mobClose" aria-label="Cerrar menú">×</button>
+    <a href="index.html">Home</a>
+    <a href="kael.html">Kael</a>
+    <a href="slide-rush.html">Slide Rush</a>
+    <a href="privacy.html" class="cur">Privacidad</a>
+  </div>
 </div>
 
-<!-- ─── PAGE ─── -->
-<main class="page">
-
-  <div class="page-header">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <a href="kael.html">Kael</a>
-      <span>/</span>
-      <span>Política de Privacidad</span>
-    </div>
-
-    <div class="app-row">
-      <div class="app-icon">
+<main class="privacy-page">
+  <section class="privacy-hero">
+    <div class="wrap privacy-hero-grid">
+      <div class="reveal">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="kael.html">Kael</a><span>/</span><span>Privacidad</span></div>
+        <div class="eyebrow">Política de Privacidad</div>
+        <h1>Kael Music Player</h1>
+        <p>Última actualización: 28 de mayo de 2026</p>
+        <div class="pill-row">
+          <span class="pill status-pill">No recopilamos datos personales</span>
+          <span class="pill">100% offline</span>
+          <span class="pill">Sin cuentas de usuario</span>
+        </div>
+      </div>
+      <div class="privacy-badge reveal">
         <img src="assets/kael/ICON KAEL (1).jpg" alt="Kael">
-      </div>
-      <div>
-        <div class="app-label">Política de Privacidad · Kael</div>
-        <div class="app-title">Kael</div>
+        <strong>Kael</strong>
+        <span>Reproductor de música local</span>
       </div>
     </div>
+  </section>
 
-    <div class="page-meta">
-      <span class="meta-chip">Vigente desde: 16/04/2026</span>
-      <span class="meta-chip green">● Sin recopilación de datos personales</span>
-      <span class="meta-chip">100% Offline</span>
+  <section class="section policy-layout">
+    <aside class="toc reveal" aria-label="Índice">
+      <strong>Índice</strong>
+      <a href="#intro">Introducción</a>
+      <a href="#informacion">Información que recopilamos</a>
+      <a href="#permisos">Permisos</a>
+      <a href="#uso">Datos de uso</a>
+      <a href="#terceros">Servicios de terceros</a>
+      <a href="#cambios">Cambios</a>
+      <a href="#contacto">Contacto</a>
+      <a href="terms.html">Términos</a>
+    </aside>
+
+    <div class="policy-content">
+      <article class="policy-card reveal" id="intro">
+        <span>01</span>
+        <h2>Introducción</h2>
+        <p><strong>Kael Music Player</strong> es un reproductor de música local que reproduce archivos de audio almacenados en tu dispositivo.</p>
+      </article>
+
+      <article class="policy-card reveal" id="informacion">
+        <span>02</span>
+        <h2>Información que recopilamos</h2>
+        <ul>
+          <li>No recopilamos ningún tipo de dato personal.</li>
+          <li>No recopilamos información de identificación, como nombre, email, número de teléfono u otros datos similares.</li>
+          <li>No enviamos ningún dato a servidores externos.</li>
+        </ul>
+      </article>
+
+      <article class="policy-card reveal" id="permisos">
+        <span>03</span>
+        <h2>Permisos que solicita la app y su uso</h2>
+        <ul>
+          <li><strong>Almacenamiento / Archivos:</strong> para leer y reproducir tu música local.</li>
+          <li><strong>Notificaciones:</strong> para controlar la reproducción desde la barra de notificaciones y widgets.</li>
+          <li><strong>Micrófono:</strong> únicamente para los visualizadores de audio. No grabamos ni guardamos audio.</li>
+          <li><strong>Servicios en primer plano:</strong> para reproducir música en segundo plano incluso cuando la app está cerrada o la pantalla está apagada. El usuario inicia la reproducción y puede controlarla desde la notificación.</li>
+        </ul>
+      </article>
+
+      <article class="policy-card reveal" id="uso">
+        <span>04</span>
+        <h2>Datos de uso</h2>
+        <p>La app funciona completamente offline. No requiere conexión a internet ni crea cuentas de usuario.</p>
+        <p>Playlists, favoritos, historial de reproducción y configuraciones permanecen almacenados localmente en el dispositivo.</p>
+        <p>El Servicio en Primer Plano se utiliza únicamente para reproducción multimedia (<strong>mediaPlayback</strong>), una función normal en reproductores de música para mantener la reproducción activa en segundo plano.</p>
+      </article>
+
+      <article class="policy-card reveal" id="terceros">
+        <span>05</span>
+        <h2>Servicios de terceros</h2>
+        <p>Kael utiliza únicamente componentes básicos del ecosistema Android y Google Play Services para distribución y funcionamiento general.</p>
+        <p>No utilizamos servicios de publicidad, rastreo ni analíticas externas.</p>
+        <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google</a></p>
+      </article>
+
+      <article class="policy-card reveal" id="cambios">
+        <span>06</span>
+        <h2>Cambios en esta política</h2>
+        <p>Cualquier cambio será publicado en esta misma página junto con una nueva fecha de actualización.</p>
+      </article>
+
+      <article class="contact-card reveal" id="contacto">
+        <div>
+          <div class="eyebrow">Contacto</div>
+          <h2>¿Tienes alguna pregunta?</h2>
+          <p>Si tienes preguntas sobre esta Política de Privacidad, puedes contactarnos en roxxergamesstudios@gmail.com.</p>
+        </div>
+        <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary">Enviar correo</a>
+      </article>
     </div>
-  </div>
-
-  <!-- TOC -->
-  <div class="toc">
-    <div class="toc-title">Índice</div>
-    <ol>
-      <li><a href="#responsable">Responsable</a></li>
-      <li><a href="#datos">Qué datos maneja la app</a></li>
-      <li><a href="#no-datos">Datos que NO recopilamos</a></li>
-      <li><a href="#terceros">Terceros</a></li>
-      <li><a href="#almacenamiento">Almacenamiento local</a></li>
-      <li><a href="#menores">Menores de edad</a></li>
-      <li><a href="#cambios">Cambios a esta política</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ol>
-  </div>
-
-  <!-- 01 -->
-  <div class="policy-sec" id="responsable">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">01</span>
-        <span class="psec-title">Responsable</span>
-      </div>
-      <p><strong style="color:var(--text);">RoXxer Studios</strong> ("nosotros") es el responsable del tratamiento de los datos asociados a la aplicación <strong style="color:var(--text);">Kael</strong>.</p>
-      <p>Correo de contacto: <a href="mailto:roxxergamesstudios@gmail.com" style="color:var(--acc);">roxxergamesstudios@gmail.com</a></p>
-    </div>
-  </div>
-
-  <!-- 02 -->
-  <div class="policy-sec" id="datos">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">02</span>
-        <span class="psec-title">Qué datos maneja la app</span>
-      </div>
-      <p>Kael es un reproductor de música local. <strong style="color:var(--text);">No recopilamos, almacenamos ni transmitimos datos personales a ningún servidor externo.</strong></p>
-      <p>La app accede a lo siguiente únicamente dentro de tu dispositivo:</p>
-      <ul>
-        <li><strong style="color:var(--text);">Archivos de audio locales</strong> — para leer y reproducir la música almacenada en tu dispositivo. Requiere permiso <code>READ_MEDIA_AUDIO</code>.</li>
-        <li><strong style="color:var(--text);">Datos de audio en tiempo real</strong> — para el visualizador de música, la app accede a la salida de audio del reproductor. Este acceso no captura ni graba el micrófono.</li>
-        <li><strong style="color:var(--text);">Preferencias y configuración</strong> — tema, ecualizador, playlists, favoritos, historial de reproducción. Se guardan localmente y nunca salen del dispositivo.</li>
-        <li><strong style="color:var(--text);">Notificaciones</strong> — para mostrar los controles de reproducción en la barra de notificaciones. Requiere permiso <code>POST_NOTIFICATIONS</code>.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="policy-sec" id="no-datos">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">03</span>
-        <span class="psec-title">Datos que NO recopilamos</span>
-      </div>
-      <p>Kael no recopila, transmite ni comparte ninguno de los siguientes datos:</p>
-      <ul class="no-list">
-        <li>Nombre, correo electrónico ni ningún dato de identificación personal</li>
-        <li>Ubicación geográfica</li>
-        <li>Contactos del dispositivo</li>
-        <li>ID de publicidad ni datos de seguimiento</li>
-        <li>Ningún dato se envía a servidores propios ni de terceros</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="policy-sec" id="terceros">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">04</span>
-        <span class="psec-title">Terceros</span>
-      </div>
-      <p>Kael utiliza únicamente <strong style="color:var(--text);">Google Play Services</strong>, requerido por el sistema Android para la distribución básica de la app. No integramos SDKs de publicidad, analíticas externas ni redes sociales.</p>
-      <ul>
-        <li>Política de privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--acc);">policies.google.com/privacy</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="policy-sec" id="almacenamiento">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">05</span>
-        <span class="psec-title">Almacenamiento local</span>
-      </div>
-      <p>Todos los datos generados por la app — playlists, favoritos, estadísticas de escucha, configuración — se almacenan <strong style="color:var(--text);">exclusivamente en la memoria local de tu dispositivo</strong> mediante bases de datos y preferencias locales.</p>
-      <p>Al desinstalar la app, estos datos se eliminan por completo del dispositivo.</p>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="policy-sec" id="menores">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">06</span>
-        <span class="psec-title">Menores de edad</span>
-      </div>
-      <p>Kael es para todo público (3+ o “Everyone”) y no recopila datos de ningún usuario. Si tienes dudas o crees que un menor ha utilizado la app de forma inapropiada, contáctanos para atender tu consulta.</p>
-    </div>
-  </div>
-
-  <!-- 07 -->
-  <div class="policy-sec" id="cambios">
-    <div class="psec">
-      <div class="psec-head">
-        <span class="psec-num">07</span>
-        <span class="psec-title">Cambios a esta política</span>
-      </div>
-      <p>Si en el futuro se realizan cambios relevantes en esta política de privacidad, actualizaremos esta página con una nueva fecha de vigencia. Te recomendamos revisarla periódicamente.</p>
-    </div>
-  </div>
-
-  <!-- 08 — Contacto -->
-  <div class="policy-sec" id="contacto">
-    <div class="contact-box">
-      <h3>¿Tienes alguna pregunta?</h3>
-      <p>Si tienes dudas sobre esta política de privacidad o sobre cómo Kael maneja tus datos, no dudes en contactarnos. Responderemos lo antes posible.</p>
-      <a class="contact-email" href="mailto:roxxergamesstudios@gmail.com">
-        <span>📧</span> roxxergamesstudios@gmail.com
-      </a>
-      <p class="page-copy">© RoXxer Studios. Todos los derechos reservados.</p>
-    </div>
-  </div>
-
+  </section>
 </main>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div class="foot-brand">
-        <div class="foot-logo">RX</div>
-        <span class="foot-name">RoXxer Studio</span>
+      <div>
+        <div class="foot-brand"><span class="foot-logo">Rx</span><span class="foot-name">RoXxer Studio</span></div>
+        <div class="foot-copy">© RoXxer Studios. Todos los derechos reservados.</div>
       </div>
       <div class="foot-links">
         <a href="index.html">Home</a>
-        <a href="kael.html">← Kael</a>
-        <a href="slide-rush.html">Slide Rush</a>
+        <a href="kael.html">Kael</a>
+        <a href="terms.html">Términos</a>
         <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
       </div>
-      <span class="foot-copy">© 2025 RoXxer</span>
     </div>
   </div>
 </footer>
 
 <script>
-  const burger = document.getElementById('burger');
-  const overlay = document.getElementById('mobOverlay');
-  const closeBtn = document.getElementById('mobClose');
-  burger?.addEventListener('click', () => { overlay.classList.add('open'); burger.classList.add('open'); });
-  closeBtn?.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); });
-  overlay?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); }));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { overlay.classList.remove('open'); burger.classList.remove('open'); } });
+  const burger = document.getElementById("burger");
+  const overlay = document.getElementById("mobOverlay");
+  const closeBtn = document.getElementById("mobClose");
+  const closeMenu = () => { overlay?.classList.remove("open"); burger?.classList.remove("open"); };
+  burger?.addEventListener("click", () => { overlay?.classList.add("open"); burger.classList.add("open"); });
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+  const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add("in");
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
 </script>
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Slide Rush — RoXxer Studio</title>
-  <meta name="description" content="Slide Rush — Juego de puzzle deslizante para móviles. Proyecto personal archivado." />
-  <meta name="theme-color" content="#131318" />
+  <title>Slide Rush | RoXxer Studio</title>
+  <meta name="description" content="Slide Rush es un juego de puzzle deslizante para móviles desarrollado con Unity." />
+  <meta name="theme-color" content="#024744" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,247 +13,169 @@
   <link rel="stylesheet" href="css/slide-rush.css">
 </head>
 <body>
-
-<!-- ─── NAVBAR ─── -->
 <header>
   <div class="wrap">
-    <nav>
-      <a href="index.html" class="brand">
-        <div class="brand-logo">RX</div>
-        <div class="brand-text">
-          <span class="brand-name">RoXxer</span>
-          <span class="brand-sub">Studio</span>
-        </div>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="brand" aria-label="RoXxer Studio">
+        <span class="brand-logo">Rx</span>
+        <span class="brand-text"><span class="brand-name">RoXxer</span><span class="brand-sub">Studio</span></span>
       </a>
-      <span class="nav-sep"></span>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="kael.html">Kael</a>
         <a href="slide-rush.html" class="cur">Slide Rush</a>
         <a href="privacy.html">Privacidad</a>
       </div>
-      <button class="burger" id="burger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="mailto:roxxergamesstudios@gmail.com" class="btn btn-primary nav-cta">Contacto</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
+
 <div class="mob-overlay" id="mobOverlay">
-  <button class="mob-close" id="mobClose">✕</button>
-  <a href="index.html">Home</a>
-  <a href="kael.html">Kael</a>
-  <a href="slide-rush.html" class="cur">Slide Rush</a>
-  <a href="privacy.html">Privacidad</a>
+  <div class="mob-panel">
+    <button class="mob-close" id="mobClose" aria-label="Cerrar menú">×</button>
+    <a href="index.html">Home</a>
+    <a href="kael.html">Kael</a>
+    <a href="slide-rush.html" class="cur">Slide Rush</a>
+    <a href="privacy.html">Privacidad</a>
+  </div>
 </div>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="">
-  </div>
-  <div class="hero-content">
+<main>
+  <section class="rush-hero">
+    <div class="rush-bg"><img src="assets/slide-rush/SlideRushPortada.jpeg" alt=""></div>
+    <div class="wrap rush-hero-grid">
+      <div class="rush-copy reveal">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Slide Rush</span></div>
+        <span class="pill">Proyecto archivado</span>
+        <h1>Slide Rush</h1>
+        <p>Juego móvil de lógica basado en el puzzle deslizante clásico, con cuadrículas variables de 3×3 a 10×10 y mecánicas desarrolladas en Unity.</p>
+      </div>
+      <div class="rush-preview reveal"><img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap story-grid">
+      <div class="story-card reveal">
+        <div class="eyebrow">Proyecto</div>
+        <h2>Un ejercicio de lógica, progresión y diseño mobile.</h2>
+        <p>Slide Rush fue construido como proyecto personal para explorar estados de juego, matrices 2D, dificultad progresiva e interfaces móviles en Unity.</p>
+      </div>
+      <div class="story-list">
+        <div class="info-card reveal"><strong>Objetivo</strong><span>Reordenar una imagen en el menor número de movimientos posible.</span></div>
+        <div class="info-card reveal"><strong>Aprendizaje</strong><span>Mecánicas escalables, edge cases de puzzle y optimización de UI móvil.</span></div>
+        <div class="info-card reveal"><strong>Stack</strong><span>Unity · C# · Android · Mobile UI · Puzzle logic</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="screens">
     <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">← Apps</a>
-        <span>/</span><span>Slide Rush</span>
-      </div>
-      <div class="arc-chip">◈ Proyecto archivado</div>
-      <h1>Slide Rush</h1>
-      <p class="hero-sub">Juego de lógica basado en el puzzle deslizante clásico. Cuadrícula variable de 3×3 a 10×10. Desarrollado con Unity.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── MAIN ─── -->
-<section class="sec">
-  <div class="wrap">
-
-    <div class="arc-banner" style="margin-bottom:36px;">
-      <div class="arc-banner-icon">📦</div>
-      <div>
-        <h4>Este proyecto ya no está disponible públicamente</h4>
-        <p>El código fuente no es accesible actualmente. Fue desarrollado como proyecto personal enfocado en lógica de juego y diseño de mecánicas.</p>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <!-- LEFT -->
-      <div>
-        <div class="ic">
-          <h4>Sobre el proyecto</h4>
-          <p>Slide Rush es un juego de lógica basado en el clásico puzzle deslizante. El jugador debe reorganizar piezas de una imagen dentro de una cuadrícula que varía desde 3×3 hasta 10×10, utilizando un sistema de movimiento con un espacio vacío.</p>
-          <p>El objetivo es reconstruir la imagen original en el menor número de movimientos posible, aumentando progresivamente la dificultad al incrementar el tamaño de la cuadrícula.</p>
-          <p>Desarrollado como proyecto personal con foco en lógica de juego, diseño de mecánicas y desarrollo mobile con Unity.</p>
-        </div>
-        <div class="ic">
-          <h4>Lo que aprendí</h4>
-          <ul>
-            <li>Diseño de mecánicas basadas en lógica y estructuras de datos</li>
-            <li>Manejo de matrices 2D para representar estados de juego</li>
-            <li>Desarrollo de sistemas de dificultad escalable</li>
-            <li>Optimización de UI para dispositivos móviles con Unity</li>
-            <li>Importancia del testing de edge cases en lógica de puzzles</li>
-          </ul>
-        </div>
-        <div class="ic">
-          <h4>Si lo rehaciera…</h4>
-          <ul>
-            <li>Animaciones fluidas al deslizar piezas (tweening con DOTween)</li>
-            <li>Sistema de niveles con progresión guardada localmente</li>
-            <li>Modo contrarreloj con tabla de clasificación</li>
-            <li>Soporte para imágenes del carrete del usuario</li>
-            <li>Efectos de partículas al completar el puzzle</li>
-          </ul>
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Capturas</div>
+          <h2 class="section-title">Pantallas y gameplay del prototipo.</h2>
         </div>
       </div>
-
-      <!-- RIGHT -->
-      <div>
-        <div class="phone-preview">
-          <img src="assets/slide-rush/SlideRushPortada.jpeg" alt="Slide Rush portada">
-        </div>
-        <div class="ic" style="margin-top:14px; text-align:center;">
-          <h4>Stack</h4>
-          <div class="stack-tags">
-            <span class="stag">Unity</span>
-            <span class="stag">C#</span>
-            <span class="stag">Android</span>
-            <span class="stag">Mobile UI</span>
-            <span class="stag">Puzzle / Logic</span>
-          </div>
-        </div>
+      <div class="shot-strip">
+        <div class="shot" data-idx="0"><img src="assets/slide-rush/SlideRush00.jpeg" alt="Slide Rush pantalla 1"></div>
+        <div class="shot" data-idx="1"><img src="assets/slide-rush/SlideRush01.jpeg" alt="Slide Rush pantalla 2"></div>
+        <div class="shot" data-idx="2"><img src="assets/slide-rush/SlideRush02.jpeg" alt="Slide Rush pantalla 3"></div>
+        <div class="shot" data-idx="3"><img src="assets/slide-rush/SlideRush03.jpeg" alt="Slide Rush pantalla 4"></div>
+        <div class="shot" data-idx="4"><img src="assets/slide-rush/SlideRush04.jpeg" alt="Slide Rush pantalla 5"></div>
+        <div class="shot" data-idx="5"><img src="assets/slide-rush/SlideRush05.jpeg" alt="Slide Rush pantalla 6"></div>
+        <div class="shot" data-idx="6"><img src="assets/slide-rush/SlideRush06.jpeg" alt="Slide Rush pantalla 7"></div>
+        <div class="shot" data-idx="7"><img src="assets/slide-rush/SlideRush07.jpeg" alt="Slide Rush pantalla 8"></div>
+        <div class="shot" data-idx="8"><img src="assets/slide-rush/SlideRush08.jpeg" alt="Slide Rush pantalla 9"></div>
+        <div class="shot" data-idx="9"><img src="assets/slide-rush/SlideRush09.jpeg" alt="Slide Rush pantalla 10"></div>
+        <div class="shot" data-idx="10"><img src="assets/slide-rush/SlideRush11.jpeg" alt="Slide Rush pantalla 11"></div>
+        <div class="shot" data-idx="11"><img src="assets/slide-rush/SlideRush12.jpeg" alt="Slide Rush pantalla 12"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr class="div" style="margin-left:24px; margin-right:24px;">
-
-<!-- ─── SCREENSHOTS ─── -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-label" style="margin-bottom:14px;">Capturas de pantalla</div>
-    <div class="strip" id="strip">
-      <div class="shot" data-idx="0"><img src="assets/slide-rush/SlideRush00.jpeg" alt="1"></div>
-      <div class="shot" data-idx="1"><img src="assets/slide-rush/SlideRush01.jpeg" alt="2"></div>
-      <div class="shot" data-idx="2"><img src="assets/slide-rush/SlideRush02.jpeg" alt="3"></div>
-      <div class="shot" data-idx="3"><img src="assets/slide-rush/SlideRush03.jpeg" alt="4"></div>
-      <div class="shot" data-idx="4"><img src="assets/slide-rush/SlideRush04.jpeg" alt="5"></div>
-      <div class="shot" data-idx="5"><img src="assets/slide-rush/SlideRush05.jpeg" alt="6"></div>
-      <div class="shot" data-idx="6"><img src="assets/slide-rush/SlideRush06.jpeg" alt="7"></div>
-      <div class="shot" data-idx="7"><img src="assets/slide-rush/SlideRush07.jpeg" alt="8"></div>
-      <div class="shot" data-idx="8"><img src="assets/slide-rush/SlideRush08.jpeg" alt="9"></div>
-      <div class="shot" data-idx="9"><img src="assets/slide-rush/SlideRush09.jpeg" alt="10"></div>
-      <div class="shot" data-idx="10"><img src="assets/slide-rush/SlideRush11.jpeg" alt="11"></div>
-      <div class="shot" data-idx="11"><img src="assets/slide-rush/SlideRush12.jpeg" alt="12"></div>
-      <div class="shot" data-idx="12"><img src="assets/slide-rush/SlideRush13.jpeg" alt="13"></div>
-      <div class="shot" data-idx="13"><img src="assets/slide-rush/SlideRush14.jpeg" alt="14"></div>
-    </div>
-    <p style="font-size:12px; color:rgba(205,186,161,.22); margin-top:8px;">Clic para ampliar · Navega con ← →</p>
-  </div>
-</section>
-
-<!-- ─── VIDEOS — centrados, sin salto, autoplay ─── -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div class="sec-label" style="margin-bottom:16px;">En acción</div>
-    <div class="vid-grid">
-      <div class="vid-wrap">
-        <div class="vid-aspect">
-          <video data-autoplay muted loop playsinline preload="metadata">
-            <source src="assets/slide-rush/SlideRush10.mp4" type="video/mp4">
-          </video>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Videos</div>
+          <h2 class="section-title">Movimiento y dificultad progresiva.</h2>
         </div>
-        <div class="vid-label">Gameplay — cuadrícula en movimiento</div>
       </div>
-      <div class="vid-wrap">
-        <div class="vid-aspect">
-          <video data-autoplay muted loop playsinline preload="metadata">
-            <source src="assets/slide-rush/SlideVideo1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="vid-label">Demo — mecánicas de juego</div>
-      </div>
-      <div class="vid-wrap">
-        <div class="vid-aspect">
-          <video data-autoplay muted loop playsinline preload="metadata">
-            <source src="assets/slide-rush/Slidevideo2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="vid-label">Dificultad escalable</div>
+      <div class="video-grid">
+        <div class="video-card reveal"><video data-autoplay muted loop playsinline preload="metadata"><source src="assets/slide-rush/SlideRush10.mp4" type="video/mp4"></video><span>Gameplay</span></div>
+        <div class="video-card reveal"><video data-autoplay muted loop playsinline preload="metadata"><source src="assets/slide-rush/SlideVideo1.mp4" type="video/mp4"></video><span>Mecánicas</span></div>
+        <div class="video-card reveal"><video data-autoplay muted loop playsinline preload="metadata"><source src="assets/slide-rush/Slidevideo2.mp4" type="video/mp4"></video><span>Dificultad</span></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div class="foot-brand">
-        <div class="foot-logo">RX</div>
-        <span class="foot-name">RoXxer Studio</span>
+      <div>
+        <div class="foot-brand"><span class="foot-logo">Rx</span><span class="foot-name">RoXxer Studio</span></div>
+        <div class="foot-copy">© 2026 RoXxer Studio. Diseño y desarrollo mobile.</div>
       </div>
       <div class="foot-links">
-        <a href="index.html">← Volver a Apps</a>
+        <a href="index.html">Home</a>
         <a href="kael.html">Kael</a>
         <a href="privacy.html">Privacidad</a>
         <a href="mailto:roxxergamesstudios@gmail.com">Contacto</a>
       </div>
-      <span class="foot-copy">© 2025 RoXxer</span>
     </div>
   </div>
 </footer>
 
-<!-- ─── LIGHTBOX ─── -->
 <div class="lb" id="lb">
-  <span class="lb-x" id="lbX">✕</span>
-  <span class="lb-nav lb-prev" id="lbPrev">‹</span>
+  <button class="lb-x" id="lbX" aria-label="Cerrar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
   <img class="lb-img" id="lbImg" src="" alt="">
-  <span class="lb-nav lb-next" id="lbNext">›</span>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">›</button>
   <span class="lb-counter" id="lbCount"></span>
 </div>
 
 <script>
-  /* ── Nav overlay ── */
-  const burger = document.getElementById('burger');
-  const overlay = document.getElementById('mobOverlay');
-  const closeBtn = document.getElementById('mobClose');
-  burger?.addEventListener('click', () => { overlay.classList.add('open'); burger.classList.add('open'); });
-  closeBtn?.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); });
-  overlay?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('open'); }));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { overlay.classList.remove('open'); burger.classList.remove('open'); closeLb(); } });
-
-  /* ── Autoplay videos when visible ── */
-  const autoVideos = document.querySelectorAll('video[data-autoplay]');
-  if ('IntersectionObserver' in window && autoVideos.length) {
-    const vo = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const v = entry.target;
-        if (entry.isIntersecting) { v.play().catch(() => {}); }
-        else { v.pause(); }
-      });
-    }, { threshold: 0.35 });
-    autoVideos.forEach(v => { v.muted = true; vo.observe(v); });
-  }
-
-  /* ── Lightbox ── */
-  const shots = [...document.querySelectorAll('.shot')];
-  const lb = document.getElementById('lb');
-  const lbImg = document.getElementById('lbImg');
-  const lbCount = document.getElementById('lbCount');
-  let cur = 0;
-  const srcs = shots.map(s => s.querySelector('img')?.src || '');
-
-  function openLb(i) { cur = i; lbImg.src = srcs[cur]; lbCount.textContent = (cur+1)+' / '+srcs.length; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  function navLb(d) { cur = (cur+d+srcs.length)%srcs.length; lbImg.src = srcs[cur]; lbCount.textContent = (cur+1)+' / '+srcs.length; }
-
-  shots.forEach((s,i) => s.addEventListener('click', () => openLb(i)));
-  document.getElementById('lbX')?.addEventListener('click', closeLb);
-  document.getElementById('lbPrev')?.addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
-  document.getElementById('lbNext')?.addEventListener('click', e => { e.stopPropagation(); navLb(1); });
-  lb?.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  const burger = document.getElementById("burger");
+  const overlay = document.getElementById("mobOverlay");
+  const closeBtn = document.getElementById("mobClose");
+  const closeMenu = () => { overlay?.classList.remove("open"); burger?.classList.remove("open"); };
+  burger?.addEventListener("click", () => { overlay?.classList.add("open"); burger.classList.add("open"); });
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add("in");
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
+  document.querySelectorAll("video[data-autoplay]").forEach((video) => {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    }), { threshold: .35 });
+    observer.observe(video);
+  });
+  const shots = [...document.querySelectorAll(".shot")];
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbCount = document.getElementById("lbCount");
+  let current = 0;
+  const srcs = shots.map((shot) => shot.querySelector("img")?.src || "");
+  const openLb = (index) => { current = index; lbImg.src = srcs[current]; lbCount.textContent = `${current + 1} / ${srcs.length}`; lb.classList.add("open"); document.body.style.overflow = "hidden"; };
+  const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
+  const navLb = (delta) => { current = (current + delta + srcs.length) % srcs.length; lbImg.src = srcs[current]; lbCount.textContent = `${current + 1} / ${srcs.length}`; };
+  shots.forEach((shot, index) => shot.addEventListener("click", () => openLb(index)));
+  document.getElementById("lbX")?.addEventListener("click", closeLb);
+  document.getElementById("lbPrev")?.addEventListener("click", () => navLb(-1));
+  document.getElementById("lbNext")?.addEventListener("click", () => navLb(1));
+  lb?.addEventListener("click", (event) => { if (event.target === lb) closeLb(); });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") { closeMenu(); closeLb(); }
+    if (lb?.classList.contains("open") && event.key === "ArrowLeft") navLb(-1);
+    if (lb?.classList.contains("open") && event.key === "ArrowRight") navLb(1);
+  });
 </script>
 </body>
 </html>
